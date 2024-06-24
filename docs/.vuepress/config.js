@@ -4,8 +4,8 @@ import { viteBundler } from '@vuepress/bundler-vite'
 
 export default defineUserConfig({
   lang: 'zh-CN',
-  title: '金山继保',
-  description: '金山继保 文库',
+  title: 'JinShan-RelayProtection',
+  description: 'JinShan-RelayProtection Site',
   base: '/', // 确认你的仓库名称作为 base
 
   theme: defaultTheme({
@@ -51,6 +51,8 @@ export default defineUserConfig({
         openInNewWindow: '在新窗口打开',
         toggleDarkMode: '切换夜间模式',
         toggleSidebar: '切换侧边栏',
+        prevText: '上一页',
+        nextText: '下一页',
       },
     },
   }),
