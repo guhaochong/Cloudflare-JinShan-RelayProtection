@@ -31,11 +31,10 @@ export default defineUserConfig({
           text: '点表库',
           collapsible: true,
           children: [
-            '/Page/10K-Standard-Nameplate.md',
             '/Page/10K-Standard-Uploadplate.md',
             '/Page/10K-Automatic-Uploadplate.md',
-            '/Page/10P-Standard-Uploadplate.md',
             '/Page/10K-SF6-Uploadplate.md',
+            '/Page/10P-Standard-Uploadplate.md',
           ],
         },
         {
