@@ -25,37 +25,31 @@ export default defineUserConfig({
           text: '目录',
           children: [
             '/get-started.md',
-            {
-              text: '---',
-            },
-            {
-              text: '点表库',
-              children: [
-                '/Page/10K-Standard-Nameplate.md',
-                '/Page/10K-Standard-Uploadplate.md',
-                '/Page/10K-Automatic-Uploadplate.md',
-                '/Page/10P-Standard-Uploadplate.md',
-                '/Page/10K-SF6-Uploadplate.md',
-              ],
-            },
-            {
-              text: '---',
-            },
-            {
-              text: '铭牌库',
-              children: [
-                '/Page/10K-Standard-Nameplate.md',
-              ],
-            },
-            {
-              text: '---',
-            },
-            {
-              text: '测试库',
-              children: [
-                '/Page/TEST.md',
-              ],
-            },
+          ],
+        },
+        {
+          text: '点表库',
+          collapsible: true,
+          children: [
+            '/Page/10K-Standard-Nameplate.md',
+            '/Page/10K-Standard-Uploadplate.md',
+            '/Page/10K-Automatic-Uploadplate.md',
+            '/Page/10P-Standard-Uploadplate.md',
+            '/Page/10K-SF6-Uploadplate.md',
+          ],
+        },
+        {
+          text: '铭牌库',
+          collapsible: true,
+          children: [
+            '/Page/10K-Standard-Nameplate.md',
+          ],
+        },
+        {
+          text: '测试库',
+          collapsible: true,
+          children: [
+            '/Page/TEST.md',
           ],
         },
       ],
