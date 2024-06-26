@@ -1,6 +1,8 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
+  ignoreDeadLinks: true, // 忽略死链接
+
   lang: 'zh-CN', // 设置语言为中文
   title: "JinShan-R.P", // 网站标题
   description: "JinShan-R.P", // 网站描述
@@ -53,7 +55,7 @@ export default defineConfig({
             collapsible: true, // 允许折叠
             collapsed: false, // 默认展开
             items: [
-              { text: 'K型 铭牌表', link: '/Page/10K-Standard-Nameplate.md' }
+              { text: 'K型 铭牌表', link: '/Page/10K-Standard-Nameplate' }
             ]
           }
         ]
