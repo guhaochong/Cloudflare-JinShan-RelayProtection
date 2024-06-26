@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "JinShan.RP"
 #  text: "JinShan.RP"
-  tagline: My great project tagline
+  tagline: My great 
   actions:
     - theme: brand
       text: 开始
