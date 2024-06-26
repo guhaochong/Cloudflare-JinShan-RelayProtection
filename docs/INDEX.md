@@ -12,13 +12,13 @@ hero:
   actions:
     - theme: brand
       text: 开始
-      link: /markdown-examples
+      link: /get-started
     - theme: alt
       text: 关于
-      link: /api-examples
+      link: /aboutus
     - theme: alt
-      text: 联系
-      link: /markdown-examples
+      text: 联系我
+      link: /findus
       
 features:
   - title: Feature A
