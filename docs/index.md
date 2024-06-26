@@ -3,16 +3,19 @@
 layout: home
 
 hero:
-  name: "My Awesome Project"
-  text: "A VitePress Site"
-  tagline: My great project tagline
+  name: "JinShan R.P Docs"
+#  text: "A VitePress Site"
+  tagline: Docs Page
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: 索引
+      link: /get-started
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: 关于
+      link: /about
+    - theme: alt
+      text: 联系
+      link: /findus
 
 features:
   - title: Feature A
