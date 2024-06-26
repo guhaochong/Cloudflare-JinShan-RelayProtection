@@ -2,7 +2,8 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   ignoreDeadLinks: true, // 忽略死链接
-
+    
+  srcDir: './page'
   lang: 'zh-CN', // 设置语言为中文
   title: "JinShan-R.P", // 网站标题
   description: "JinShan-R.P", // 网站描述
