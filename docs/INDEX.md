@@ -6,9 +6,6 @@ hero:
   name: "JinShan.RP"
 #  text: "JinShan.RP"
   tagline: My great project tagline
-  image:
-    src: /public/images/goodlogo.png
-    alt: VitePress
   actions:
     - theme: brand
       text: 开始
