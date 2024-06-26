@@ -6,6 +6,7 @@ hero:
   name: "JinShan R.P Docs"
 #  text: "A VitePress Site"
   tagline: Docs Page
+  image: “/Images/goodlogo.png"
   actions:
     - theme: brand
       text: 索引
@@ -18,11 +19,10 @@ hero:
       link: /findus
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
----
+  - title: 介绍
+    details: 简单的介绍
+  - title: 预留
+    details: 预留
+  - title: 预留
+    details: 预留
 
