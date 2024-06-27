@@ -2,7 +2,6 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   ignoreDeadLinks: true, // 忽略死链接
-  lastUpdated: true
 
   lang: 'zh-CN', // 设置语言为中文
   title: "JinShan-R.P", // 网站标题
@@ -10,10 +9,6 @@ export default defineConfig({
   base: '/', // 网站基础路径
 
   themeConfig: {
-        // 编辑此页配置
-    editLink: {
-      pattern: 'https://github.com/guhaochong/Cloudflare-JinShan-RelayProtection/edit/main/docs/:path'
-    }
     // 导航栏配置
     nav: [
       { text: '开始', link: '/' }, // 导航栏中的“开始”链接
@@ -131,7 +126,9 @@ export default defineConfig({
     appearance: {
       toggleDark: '切换到暗黑模式',
       toggleLight: '切换到光亮模式'
-    }
+    },
+    sidebarMenuLabel: '菜单', // 侧边栏菜单标签
+    returnToTopLabel: '返回顶部' // 返回顶部标签
   },
 
   // 本地化配置
