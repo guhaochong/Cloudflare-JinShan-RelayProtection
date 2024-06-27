@@ -76,13 +76,13 @@ OK<Badge type="info" text="default" />
 GPT测试
 
 > ### 0 <Badge type="danger" text="点号" /> 事故总信号 <Badge type="tip" text="信号名称" />
->> ###### 合成事故总 <Badge type="tip" text="信号定义" />
+>> ###### 合成事故总 <Badge type="warning" text="信号定义" />
 
 > ### 1 <Badge type="danger" text="点号" /> 10千伏一段自切未准备 <Badge type="tip" text="信号名称" />
->> ###### 一段自切保护未准备信号 <Badge type="tip" text="信号定义" />
+>> ###### 一段自切保护未准备信号 <Badge type="warning" text="信号定义" />
 
 > ### 2 <Badge type="danger" text="点号" /> 10千伏二段自切未准备 <Badge type="tip" text="信号名称" />
->> ###### 二段自切保护未准备信号 <Badge type="tip" text="信号定义" />
+>> ###### 二段自切保护未准备信号 <Badge type="warning" text="信号定义" />
 
 
 
@@ -92,61 +92,61 @@ GPT测试
 
 
 > ### 0 <Badge type="danger" text="点号" /> 事故总信号 <Badge type="tip" text="信号名称" />
->> ###### 合成事故总 <Badge type="tip" text="信号定义" />
+>> ###### 合成事故总 <Badge type="warning" text="信号定义" />
 
 > ### 1 <Badge type="danger" text="点号" /> 10千伏一段自切未准备 <Badge type="tip" text="信号名称" />
->> ###### 一段自切保护未准备信号 <Badge type="tip" text="信号定义" />
+>> ###### 一段自切保护未准备信号 <Badge type="warning" text="信号定义" />
 
 > ### 2 <Badge type="danger" text="点号" /> 10千伏二段自切未准备 <Badge type="tip" text="信号名称" />
->> ###### 二段自切保护未准备信号 <Badge type="tip" text="信号定义" />
+>> ###### 二段自切保护未准备信号 <Badge type="warning" text="信号定义" />
 
 > ### 3 <Badge type="danger" text="点号" /> 10千伏分段自切跳一段进线开关 <Badge type="tip" text="信号名称" />
->> ###### 自切动作后，跳开一号进线开关信号 <Badge type="tip" text="信号定义" />
+>> ###### 自切动作后，跳开一号进线开关信号 <Badge type="warning" text="信号定义" />
 
 > ### 4 <Badge type="danger" text="点号" /> 10千伏分段自切跳二段进线开关 <Badge type="tip" text="信号名称" />
->> ###### 自切动作后，跳开二号进线开关信号 <Badge type="tip" text="信号定义" />
+>> ###### 自切动作后，跳开二号进线开关信号 <Badge type="warning" text="信号定义" />
 
 > ### 5 <Badge type="danger" text="点号" /> 10千伏分段自切合分段开关 <Badge type="tip" text="信号名称" />
->> ###### 自切动作后，合上分段开关信号 <Badge type="tip" text="信号定义" />
+>> ###### 自切动作后，合上分段开关信号 <Badge type="warning" text="信号定义" />
 
 > ### 6 <Badge type="danger" text="点号" /> 10千伏分段自切后加速跳分段开关 <Badge type="tip" text="信号名称" />
->> ###### 自切后加速动作，跳开分段开关信号 <Badge type="tip" text="信号定义" />
+>> ###### 自切后加速动作，跳开分段开关信号 <Badge type="warning" text="信号定义" />
 
 > ### 7 <Badge type="danger" text="点号" /> 10千伏出线（站配变）保护动作 <Badge type="tip" text="信号名称" />
->> ###### 出线、配变、站变保护动作信号（前加速、重合闸、过流、零流、间隙、等） <Badge type="tip" text="信号定义" />
+>> ###### 出线、配变、站变保护动作信号（前加速、重合闸、过流、零流、间隙、等） <Badge type="warning" text="信号定义" />
 
 > ### 8 <Badge type="danger" text="点号" /> 站内微机装置异常 <Badge type="tip" text="信号名称" />
->> ###### 全站保护装置故障信号（装置失电、装置异常） <Badge type="tip" text="信号定义" />
+>> ###### 全站保护装置故障信号（装置失电、装置异常） <Badge type="warning" text="信号定义" />
 
 > ### 9 <Badge type="danger" text="点号" /> 直流系统故障 <Badge type="tip" text="信号名称" />
->> ###### 直流装置异常及失电信号 <Badge type="tip" text="信号定义" />
+>> ###### 直流装置异常及失电信号 <Badge type="warning" text="信号定义" />
 
 > ### 10 <Badge type="danger" text="点号" /> 10千伏站变/配变异常 <Badge type="tip" text="信号名称" />
->> ###### 当为配变配置为超温、高温信号；当为站变配置则为站变熔丝熔断、站变空开故障 <Badge type="tip" text="信号定义" />
+>> ###### 当为配变配置为超温、高温信号；当为站变配置则为站变熔丝熔断、站变空开故障 <Badge type="warning" text="信号定义" />
 
 > ### 11 <Badge type="danger" text="点号" /> 10千伏进线纵差保护动作 <Badge type="tip" text="信号名称" />
->> ###### 纵差保护动作信号 <Badge type="tip" text="信号定义" />
+>> ###### 纵差保护动作信号 <Badge type="warning" text="信号定义" />
 
 > ### 12 <Badge type="danger" text="点号" /> 10千伏进线纵差装置异常 <Badge type="tip" text="信号名称" />
->> ###### 纵差装置异常、通信异常信号 <Badge type="tip" text="信号定义" />
+>> ###### 纵差装置异常、通信异常信号 <Badge type="warning" text="信号定义" />
 
 > ### 13 <Badge type="danger" text="点号" /> 站内空开故障 <Badge type="tip" text="信号名称" />
->> ###### 全站空开故障、信开故障信号 <Badge type="tip" text="信号定义" />
+>> ###### 全站空开故障、信开故障信号 <Badge type="warning" text="信号定义" />
 
 > ### 14 <Badge type="danger" text="点号" /> 站内微机装置通讯故障 <Badge type="tip" text="信号名称" />
->> ###### 全站保护装置通讯异常信号 <Badge type="tip" text="信号定义" />
+>> ###### 全站保护装置通讯异常信号 <Badge type="warning" text="信号定义" />
 
 > ### 15 <Badge type="danger" text="点号" /> 站用电异常 <Badge type="tip" text="信号名称" />
->> ###### 站用电失电信号 <Badge type="tip" text="信号定义" />
+>> ###### 站用电失电信号 <Badge type="warning" text="信号定义" />
 
 > ### 16 <Badge type="danger" text="点号" /> 10千伏开关弹簧未储能 <Badge type="tip" text="信号名称" />
->> ###### 全站开关未储能信号 <Badge type="tip" text="信号定义" />
+>> ###### 全站开关未储能信号 <Badge type="warning" text="信号定义" />
 
 > ### 17 <Badge type="danger" text="点号" /> 10千伏开关柜温湿控制器故障 <Badge type="tip" text="信号名称" />
->> ###### 全站加热器故障信号 <Badge type="tip" text="信号定义" />
+>> ###### 全站加热器故障信号 <Badge type="warning" text="信号定义" />
 
 > ### 18 <Badge type="danger" text="点号" /> 10千伏开关控制回路断线 <Badge type="tip" text="信号名称" />
->> ###### 全站控制回路断线信号 <Badge type="tip" text="信号定义" />
+>> ###### 全站控制回路断线信号 <Badge type="warning" text="信号定义" />
 
 > ### 19 <Badge type="danger" text="点号" /> 10千伏一段进线开关（合） <Badge type="tip" text="信号名称" />
 >> ######
