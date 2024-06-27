@@ -67,10 +67,19 @@
 
 
 
+OK<Badge type="info" text="default" />
+
+### Title111<Badge type="tip" text="^1.9.0" />
+### Title <Badge type="warning" text="beta" />
+### Title <Badge type="danger" text="caution" />
 
 
-## 遥信点表
 
+
+
+
+
+## 遥信点表<Badge type="info" text="default" />
 
 
 - 点号 	01
@@ -83,56 +92,27 @@
 
 12132123123
 
-## 进线柜dd
+## 进线柜
 
-> `序号 01`
->
-> > 控制电源小开关
-> >> 控制电源+状态指示电源
-> >>> 型号: 直流6A
 
-> 序号 02
->> 保护电源小开关
->>> 微机装置电源+保护开入电源
->>>> 型号: 直流6A
-
-> 序号 03
->> 储能电源小开关
->>> 
->>>> 型号: 交流6A
-
-> 序号 04
->> 闭锁电源小开关
->>> 
->>>> 型号: 直流3A
-
-> 序号 05
->> 加热器电源小开关
->>> 
->>>> 型号: 交流6A
-
-> 序号 06
->> 照明电源小开关
->>> 
->>>> 型号: 交流6A
-
-> 序号 07
->> 保护压变小开关
->>> 
->>>> 型号: 交流3A
-
-> 序号 08
->> 保护3U0压变小开关
->>> 若有
->>>> 型号: 交流1A
-
-> 序号 09
->> 温湿度控制电源小开关
->>> 若有
->>>> 型号: 交流6A
-
-> 序号 10
->> 纵差装置/微机装置
->>> 根据现场实际装置型号
->>>> 型号: 
+>	###	01		<Badge type="danger" text="点号" />	控制电源小开关	<Badge type="tip" text="名称" />
+>>	 ######		控制电源+状态指示电源	 <Badge type="tip" text="备注" />	型号: 直流6A	<Badge type="tip" text="型号" />
+>	###	02		<Badge type="danger" text="点号" />	控制电源小开关	<Badge type="tip" text="名称" />
+>>	 ######		控制电源+状态指示电源	 <Badge type="tip" text="备注" />	型号: 直流6A	<Badge type="tip" text="型号" />
+>	###	03		<Badge type="danger" text="点号" />	控制电源小开关	<Badge type="tip" text="名称" />
+>>	 ######		控制电源+状态指示电源	 <Badge type="tip" text="备注" />	型号: 直流6A	<Badge type="tip" text="型号" />
+>	###	04		<Badge type="danger" text="点号" />	控制电源小开关	<Badge type="tip" text="名称" />
+>>	 ######		控制电源+状态指示电源	 <Badge type="tip" text="备注" />	型号: 直流6A	<Badge type="tip" text="型号" />
+>	###	05		<Badge type="danger" text="点号" />	控制电源小开关	<Badge type="tip" text="名称" />
+>>	 ######		控制电源+状态指示电源	 <Badge type="tip" text="备注" />	型号: 直流6A	<Badge type="tip" text="型号" />
+>	###	06		<Badge type="danger" text="点号" />	控制电源小开关	<Badge type="tip" text="名称" />
+>>	 ######		控制电源+状态指示电源	 <Badge type="tip" text="备注" />	型号: 直流6A	<Badge type="tip" text="型号" />
+>	###	07		<Badge type="danger" text="点号" />	控制电源小开关	<Badge type="tip" text="名称" />
+>>	 ######		控制电源+状态指示电源	 <Badge type="tip" text="备注" />	型号: 直流6A	<Badge type="tip" text="型号" />
+>	###	08		<Badge type="danger" text="点号" />	控制电源小开关	<Badge type="tip" text="名称" />
+>>	 ######		控制电源+状态指示电源	 <Badge type="tip" text="备注" />	型号: 直流6A	<Badge type="tip" text="型号" />
+>	###	09		<Badge type="danger" text="点号" />	控制电源小开关	<Badge type="tip" text="名称" />
+>>	 ######		控制电源+状态指示电源	 <Badge type="tip" text="备注" />	型号: 直流6A	<Badge type="tip" text="型号" />
+>	###	10		<Badge type="danger" text="点号" />	控制电源小开关	<Badge type="tip" text="名称" />
+>>	 ######		控制电源+状态指示电源	 <Badge type="tip" text="备注" />	型号: 直流6A	<Badge type="tip" text="型号" />
 
