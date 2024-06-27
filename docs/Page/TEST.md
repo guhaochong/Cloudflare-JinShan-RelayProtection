@@ -94,25 +94,9 @@ OK<Badge type="info" text="default" />
 
 ## 进线柜
 
-
->	###	01		<Badge type="danger" text="点号" />	控制电源小开关	<Badge type="tip" text="名称" />
->>	 ######		控制电源+状态指示电源	 <Badge type="tip" text="备注" />	型号: 直流6A	<Badge type="tip" text="型号" />
->	###	02		<Badge type="danger" text="点号" />	控制电源小开关	<Badge type="tip" text="名称" />
->>	 ######		控制电源+状态指示电源	 <Badge type="tip" text="备注" />	型号: 直流6A	<Badge type="tip" text="型号" />
->	###	03		<Badge type="danger" text="点号" />	控制电源小开关	<Badge type="tip" text="名称" />
->>	 ######		控制电源+状态指示电源	 <Badge type="tip" text="备注" />	型号: 直流6A	<Badge type="tip" text="型号" />
->	###	04		<Badge type="danger" text="点号" />	控制电源小开关	<Badge type="tip" text="名称" />
->>	 ######		控制电源+状态指示电源	 <Badge type="tip" text="备注" />	型号: 直流6A	<Badge type="tip" text="型号" />
->	###	05		<Badge type="danger" text="点号" />	控制电源小开关	<Badge type="tip" text="名称" />
->>	 ######		控制电源+状态指示电源	 <Badge type="tip" text="备注" />	型号: 直流6A	<Badge type="tip" text="型号" />
->	###	06		<Badge type="danger" text="点号" />	控制电源小开关	<Badge type="tip" text="名称" />
->>	 ######		控制电源+状态指示电源	 <Badge type="tip" text="备注" />	型号: 直流6A	<Badge type="tip" text="型号" />
->	###	07		<Badge type="danger" text="点号" />	控制电源小开关	<Badge type="tip" text="名称" />
->>	 ######		控制电源+状态指示电源	 <Badge type="tip" text="备注" />	型号: 直流6A	<Badge type="tip" text="型号" />
->	###	08		<Badge type="danger" text="点号" />	控制电源小开关	<Badge type="tip" text="名称" />
->>	 ######		控制电源+状态指示电源	 <Badge type="tip" text="备注" />	型号: 直流6A	<Badge type="tip" text="型号" />
->	###	09		<Badge type="danger" text="点号" />	控制电源小开关	<Badge type="tip" text="名称" />
->>	 ######		控制电源+状态指示电源	 <Badge type="tip" text="备注" />	型号: 直流6A	<Badge type="tip" text="型号" />
->	###	10		<Badge type="danger" text="点号" />	控制电源小开关	<Badge type="tip" text="名称" />
->>	 ######		控制电源+状态指示电源	 <Badge type="tip" text="备注" />	型号: 直流6A	<Badge type="tip" text="型号" />
-
+>	###	1	<Badge type="danger" text="点号" />	10千伏一段自切未准备	<Badge type="tip" text="名称" />		
+>>	 ######					一段自切保护未准备信号		 <Badge type="tip" text="备注" />
+>>	 ######						
+>	###	1	<Badge type="danger" text="点号" />	10千伏二段自切未准备		<Badge type="tip" text="名称" />		
+>>	 ######					二段自切保护未准备信号		 <Badge type="tip" text="备注" />
+>>	 ######									
