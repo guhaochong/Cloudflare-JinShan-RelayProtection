@@ -40,6 +40,7 @@ export default defineConfig({
               { text: '10K 标准点表', link: '/Page/10K-Standard-Uploadplate' }, // 三级标题及链接
               { text: '10K 自愈点表', link: '/Page/10K-Automatic-Uploadplate' },
               { text: '10K SF6点表', link: '/Page/10K-SF6-Uploadplate' }
+              { text: '10K 报警灯表', link: '/Page/10K-Alarmpanel' }
             ]
           },
           {
