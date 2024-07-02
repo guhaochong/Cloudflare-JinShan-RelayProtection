@@ -1,6 +1,9 @@
 import { defineConfig } from 'vitepress'
+import backToTop from 'vitepress-plugin-back-to-top'
 
 export default defineConfig({
+  // 其他配置
+  plugins: [backToTop()],
   ignoreDeadLinks: true, // 忽略死链接
 
   lang: 'zh-CN', // 设置语言为中文
@@ -39,8 +42,8 @@ export default defineConfig({
             items: [
               { text: '10K 标准点表', link: '/Page/10K-Standard-Uploadplate' }, // 三级标题及链接
               { text: '10K 自愈点表', link: '/Page/10K-Automatic-Uploadplate' },
-              { text: '10K SF6点表', link: '/Page/10K-SF6-Uploadplate' }
-              { text: '10K 报警灯表', link: '/Page/10K-Alarmpanel' }
+              { text: '10K SF6点表', link: '/Page/10K-SF6-Uploadplate' }, // 需要逗号
+              { text: '10K 报警灯配置表', link: '/Page/10K-Alarmplate' }
             ]
           },
           {
@@ -50,15 +53,15 @@ export default defineConfig({
             items: [
               { text: '10P 标准点表', link: '/Page/10P-Standard-Uploadplate' }
             ]
-          },
-          {
-            text: '铭牌库', // 二级标题
-            collapsible: true, // 允许折叠
-            collapsed: false, // 默认展开
-            items: [
-              { text: 'K型 铭牌表', link: '/Page/10K-Standard-Nameplate' }
-            ]
           }
+        ]
+      },
+      {
+        text: '铭牌库', // 一级标题
+        collapsible: true, // 允许折叠
+        collapsed: false, // 默认展开
+        items: [
+          { text: 'K型 铭牌表', link: '/Page/10K-Standard-Nameplate' }
         ]
       }
     ],
