@@ -1,9 +1,6 @@
 import { defineConfig } from 'vitepress'
-import backToTop from 'vitepress-plugin-back-to-top'
 
 export default defineConfig({
-  // 其他配置
-  plugins: [backToTop()],
   ignoreDeadLinks: true, // 忽略死链接
 
   lang: 'zh-CN', // 设置语言为中文
