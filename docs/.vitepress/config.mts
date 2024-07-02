@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import backToTop from 'vitepress-plugin-back-to-top'
 
 export default defineConfig({
   ignoreDeadLinks: true, // 忽略死链接
@@ -156,5 +157,7 @@ export default defineConfig({
         linkText: '返回首页'
       }
     }
-  }
+  },
+  
+  plugins: [backToTop()] // 配置插件
 })
