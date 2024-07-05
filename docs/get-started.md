@@ -4,10 +4,18 @@
 
 ## 点表库
 
-- [10千伏 K型号 标准 点表](/Page/10K-Standard-Uploadplate.md)
-- [10千伏 K型号 SF6充气型 点表](/Page/10K-SF6-Uploadplate.md)
-- [10千伏 P型号 标准 点表](/Page/10P-Standard-Uploadplate.md)
-- [10千伏 K型号 自愈 点表](/Page/10K-Automatic-Uploadplate.md)
+- K型 开关站
+
+  - [10千伏 K型 标准 点表](/Page/10K-Standard-Uploadplate.md)
+
+  - [10千伏 K型 SF6充气柜 点表](/Page/10K-SF6-Uploadplate.md)
+
+  - [10千伏 K型 自愈 点表](/Page/10K-Automatic-Uploadplate.md)
+  - [10千伏 K型 报警灯 配置表](Page/10K-Alarmplate.md)
+
+- P型 小区站
+  - [10千伏 P型 标准 点表](/Page/10P-Standard-Uploadplate.md)
+
 
 ## 铭牌库
 
@@ -17,3 +25,4 @@
 
 - [测试](/Page/TEST.md)
 - [其他](/Page/OTHER.md)
+
