@@ -58,7 +58,7 @@ export default defineConfig({
         collapsible: true, // 允许折叠
         collapsed: false, // 默认展开
         items: [
-          { text: 'K型 铭牌表', link: '/Page/10K-Standard-Nameplate' }
+          { text: '10K 二次铭牌表', link: '/Page/10K-Standard-Nameplate' }
         ]
       }
     ],
