@@ -44,7 +44,7 @@ export default defineConfig({
             ]
           },
           {
-            text: 'P型号 开关站', // 二级标题
+            text: 'P型号 小区站', // 二级标题
             collapsible: true, // 允许折叠
             collapsed: false, // 默认展开
             items: [
