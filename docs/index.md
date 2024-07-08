@@ -4,9 +4,9 @@ layout: home
 
 hero:
   name: "JinShan R.P Docs"
-#  text: "A VitePress Site"
+#  text: "JinShan R.P Docs"
   tagline: Docs Page
-  image: “./public/images/goodlogo.png"
+  image: “./docs/public/images/goodlogo.png"
   actions:
     - theme: brand
       text: 索引
