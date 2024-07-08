@@ -12,11 +12,11 @@ hero:
       text: 索引
       link: /get-started
     - theme: alt
-      text: 关于
-      link: /about
+      text: 汇报
+      link: https://vpxgs4916b.feishu.cn/share/base/form/shrcn6sUMAylqmHk3sRLb4zOZhg
     - theme: alt
-      text: 联系
-      link: /findus
+      text: 查询
+      link: https://vpxgs4916b.feishu.cn/share/base/query/shrcnl4iferiPW2Tp5m05PkBczb
 
 features:
   - title: 介绍
@@ -25,4 +25,3 @@ features:
     details: 预留
   - title: 预留
     details: 预留
-
