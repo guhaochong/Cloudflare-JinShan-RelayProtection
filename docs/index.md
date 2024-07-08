@@ -6,7 +6,8 @@ hero:
   name: "JinShan R.P Docs"
 #  text: "A VitePress Site"
   tagline: Docs Page
-  image: “/Images/goodlogo.png"
+image: "./public/images/homelogo.png"
+
   actions:
     - theme: brand
       text: 索引
