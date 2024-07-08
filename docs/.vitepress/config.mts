@@ -67,14 +67,6 @@ export default defineConfig({
             ]
           },
         ]
-      },
-      {
-        text: '铭牌库', // 一级标题
-        collapsible: true, // 允许折叠
-        collapsed: false, // 默认展开
-        items: [
-          { text: '10K 二次铭牌表', link: '/Page/10K-Standard-Nameplate' }
-        ]
       }
     ],
 
