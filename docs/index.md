@@ -6,7 +6,7 @@ hero:
   name: "JinShan R.P Docs"
 #  text: "JinShan R.P Docs"
   tagline: Docs Page
-  image: "/images/goodlogo.png"  # 确保使用英文双引号
+#  image: "/images/goodlogo.png"  # 确保使用英文双引号
   actions:
     - theme: brand
       text: 索引
