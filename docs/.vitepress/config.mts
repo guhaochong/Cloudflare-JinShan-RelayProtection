@@ -77,8 +77,8 @@ export default defineConfig({
 
     // 页脚配置
     footer: {
-      message: 'Released under the MIT License.', // 页脚信息
-      copyright: 'Copyright © 2024 JinShan-RelayProtection' // 版权信息
+      message: 'No reproduction without permission.', // 页脚信息
+      copyright: 'Copyright ©  JinShan-R.P by guhaochong' // 版权信息
     },
 
     // 搜索功能配置
