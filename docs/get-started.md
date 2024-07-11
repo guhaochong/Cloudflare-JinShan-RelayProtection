@@ -15,6 +15,7 @@
 
 - P型 小区站
   - [10千伏 P型 标准 点表](/Page/10P-Standard-Uploadplate.md)
+  - [10千伏 P型 报警灯 配置表](/Page/10P-Alarmplate.md)
 
 
 ## 铭牌库

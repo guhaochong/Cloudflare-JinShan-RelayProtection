@@ -48,7 +48,8 @@ export default defineConfig({
             collapsible: true, // 允许折叠
             collapsed: false, // 默认展开
             items: [
-              { text: '10P 标准点表', link: '/Page/10P-Standard-Uploadplate' }
+              { text: '10P 标准点表', link: '/Page/10P-Standard-Uploadplate' },
+              { text: '10P 报警灯配置表', link: '/Page/10P-Alarmplate' }
             ]
           }
         ]
