@@ -1,12 +1,10 @@
 # TEST 测试
 
+
+
+
+
 # 数学公式示例
-
-image: "/img/light.webp"
-
-![一张图片](./img/light.webp)
-
-public
 
 这是一个行内公式：$E=mc^2$
 
