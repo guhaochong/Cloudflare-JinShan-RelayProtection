@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import { getSingletonHighlighter } from './shiki';
 
 export default defineConfig({
   ignoreDeadLinks: true, // 忽略死链接
@@ -7,6 +8,14 @@ export default defineConfig({
   title: "JinShan-R.P", // 网站标题
   description: "JinShan-R.P", // 网站描述
   base: '/', // 网站基础路径
+
+  markdown: {
+    math: true, // 启用数学公式支持
+    async highlighter(code, lang) {
+      const highlighter = await getSingletonHighlighter();
+      return highlighter.codeToHtml(code, { lang });
+    }
+  },
 
   themeConfig: {
     // 导航栏配置
@@ -39,7 +48,7 @@ export default defineConfig({
             items: [
               { text: '10K 标准点表', link: '/Page/10K-Standard-Uploadplate' }, // 三级标题及链接
               { text: '10K 自愈点表', link: '/Page/10K-Automatic-Uploadplate' },
-              { text: '10K SF6点表', link: '/Page/10K-SF6-Uploadplate' }, // 需要逗号
+              { text: '10K SF6点表', link: '/Page/10K-SF6-Uploadplate' },
               { text: '10K 报警灯配置表', link: '/Page/10K-Alarmplate' }
             ]
           },
@@ -49,6 +58,7 @@ export default defineConfig({
             collapsed: false, // 默认展开
             items: [
               { text: '10P 标准点表', link: '/Page/10P-Standard-Uploadplate' },
+              { text: '10P SF6点表', link: '/Page/10P-SF6-Uploadplate' },
               { text: '10P 报警灯配置表', link: '/Page/10P-Alarmplate' }
             ]
           }
