@@ -2,6 +2,12 @@
 
 # 数学公式示例
 
+image: "/img/light.webp"
+
+![一张图片](./img/light.webp)
+
+public
+
 这是一个行内公式：$E=mc^2$
 
 这是一个块级公式：
@@ -10,7 +16,7 @@ $$
 $$
 
 $$
-\left(x-1\right)\left(x+3\right) 
+\left(x-1\right)\left(x+3\right)
 $$
 
 
