@@ -4,7 +4,7 @@
 
 这是一些内容。
 
-![描述](./img/test.webp)
+![描述](./img/Test.webp)
 
 
 更多内容...
