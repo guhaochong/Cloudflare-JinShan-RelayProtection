@@ -39,11 +39,9 @@
 
 ## 报警灯 灯位对应表
 
-::: details 报警灯  示意图（点击折叠块 ）
+#### 报警灯  示意图
 
 ![10P-Alarmplate](./img/10P-Alarmplate.webp)
-
-:::
 
 ::: details 报警灯 区域一 序列示意（点击折叠块 可向右滑动）
 
