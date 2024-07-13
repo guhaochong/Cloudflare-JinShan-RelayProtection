@@ -7,7 +7,7 @@ hero:
 #  text: "JinShan R.P Docs"
   tagline: Docs Page
   image:
-        src: /img/homelogo.png
+        src: /Img/homelogo.png
         # 图片的描述
         alt: homelogo
   actions:
