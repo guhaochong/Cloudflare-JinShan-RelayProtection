@@ -12,14 +12,11 @@ hero:
         alt: homelogo
   actions:
     - theme: brand
-      text: 进入索引
+      text: 快速索引
       link: /get-started
     - theme: alt
-      text: 工作汇报
-      link: https://vpxgs4916b.feishu.cn/share/base/form/shrcn6sUMAylqmHk3sRLb4zOZhg
-    - theme: alt
-      text: 日志查询
-      link: https://vpxgs4916b.feishu.cn/share/base/query/shrcnl4iferiPW2Tp5m05PkBczb
+      text: 与我联系
+      link: /about
 
 features:
   - icon: 📑   

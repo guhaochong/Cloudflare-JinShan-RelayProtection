@@ -20,9 +20,9 @@ export default defineConfig({
   themeConfig: {
     // 导航栏配置
     nav: [
-      { text: '开始', link: '/' }, // 导航栏中的“开始”链接
+      { text: '首页', link: '/' }, // 导航栏中的“开始”链接
       { text: '索引', link: '/get-started' }, // 导航栏中的“索引”链接
-      { text: '关于', link: '/about' } // 导航栏中的“关于”链接
+      { text: '联系', link: '/about' } // 导航栏中的“关于”链接
     ],
 
     // 侧边栏配置
@@ -31,7 +31,7 @@ export default defineConfig({
         text: '目录', // 侧边栏标题
         items: [
           { text: '索引', link: '/get-started' }, // 侧边栏中的“索引”链接
-          { text: '关于', link: '/about' } // 侧边栏中的“关于”链接
+          { text: '联系', link: '/about' } // 侧边栏中的“关于”链接
         ],
         collapsible: true, // 允许折叠
         collapsed: false // 默认展开
