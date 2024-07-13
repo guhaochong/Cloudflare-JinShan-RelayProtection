@@ -11,11 +11,11 @@ import {
 
 const members = [
   {
-    avatar: 'https://www.github.com/yyx990803.png',
+    avatar: 'https://raw.githubusercontent.com/guhaochong/Cloudflare-JinShan-RelayProtection/main/docs/Images/guhaochong.svg',
     name: 'Gu Haochong',
     title: 'Creator',
     links: [
-      { icon: 'github', link: 'tel:4001121066' },
+      { icon: 'phone', link: 'tel:18918632300' },
       { icon: 'twitter', link: 'https://twitter.com/youyuxi' }
     ]
   },
