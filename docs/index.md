@@ -7,7 +7,7 @@ hero:
 #  text: "JinShan R.P Docs"
   tagline: Docs Page
   image:
-        src: https://raw.githubusercontent.com/guhaochong/Cloudflare-JinShan-RelayProtection/main/docs/Images/homelogo.png
+        src: https://pub-c193d05a6fc642ffad336f4beb1a9942.r2.dev/Images/homelogo.png
         # 图片的描述
         alt: homelogo
   actions:

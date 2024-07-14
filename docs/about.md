@@ -10,12 +10,12 @@ import {
 } from 'vitepress/theme'
 
 // 自定义的 SVG 图标路径
-const phoneIcon = 'https://raw.githubusercontent.com/guhaochong/Cloudflare-JinShan-RelayProtection/main/docs/Images/phoneIcon.svg';
-const wechatIcon = 'https://raw.githubusercontent.com/guhaochong/Cloudflare-JinShan-RelayProtection/main/docs/Images/wechatIcon.svg';
+const phoneIcon = 'https://pub-c193d05a6fc642ffad336f4beb1a9942.r2.dev/Images/phoneIcon.svg';
+const wechatIcon = 'https://pub-c193d05a6fc642ffad336f4beb1a9942.r2.dev/Images/wechatIcon.svg';
 
 const members = [
   {
-    avatar: 'https://raw.githubusercontent.com/guhaochong/Cloudflare-JinShan-RelayProtection/main/docs/Images/guhaochong.svg',
+    avatar: 'https://pub-c193d05a6fc642ffad336f4beb1a9942.r2.dev/Images/guhaochong.svg',
     name: 'Gu Haochong',
     title: 'Creator',
     links: [
