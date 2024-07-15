@@ -40,6 +40,10 @@
 
 ## 报警灯 灯位对应表
 
+#### 报警灯  示意图
+
+![10P-Alarmplate](./img/10K-Alarmplate.webp)
+
 ::: details 报警灯 区域一 排列图示 （点击折叠块 可向右滑动）
 
 | X1       | X2       | X3       | X4           | X5       | X6       | X7         | X8               | X9         | X10  | X11  | X12  |
