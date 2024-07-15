@@ -3,6 +3,9 @@ import { getSingletonHighlighter } from './shiki';
 
 export default defineConfig({
   ignoreDeadLinks: true, // 忽略死链接
+  head: [
+    ['link', { rel: 'icon', href: 'https://pub-c193d05a6fc642ffad336f4beb1a9942.r2.dev/Images/svglogo.svg' }]
+  ],
 
   lang: 'zh-CN', // 设置语言为中文
   title: "JinShan-R.P", // 网站标题
