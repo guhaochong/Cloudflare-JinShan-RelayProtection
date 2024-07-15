@@ -3,9 +3,10 @@
 layout: home
 
 hero:
-  name: "JinShan R.P Docs"
-#  text: "JinShan R.P Docs"
-  tagline: Docs Page
+  name: "JinShan R.P"
+  text: "For Docs & Date"
+  tagline: Document Publishing Web Page
+
   image:
         src: https://pub-c193d05a6fc642ffad336f4beb1a9942.r2.dev/Images/homelogo.png
         # 图片的描述
@@ -19,12 +20,12 @@ hero:
       link: /about
 
 features:
-  - icon: 📑   
+  - icon: 📋   
     title: 文档索引
     details: 各类文档快速索引页，可快速找到所需文档
     link: /get-started   #  链接
     linkText: 
-  - icon: 📰
+  - icon: 📝
     title: 工作汇报
     details: 工作结束状态填报 
     link: https://vpxgs4916b.feishu.cn/share/base/form/shrcn6sUMAylqmHk3sRLb4zOZhg  #  链接

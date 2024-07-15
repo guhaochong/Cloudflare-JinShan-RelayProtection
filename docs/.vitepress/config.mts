@@ -18,6 +18,8 @@ export default defineConfig({
   },
 
   themeConfig: {
+    //logo
+    logo: '/logo.svg',
     // 导航栏配置
     nav: [
       { text: '首页', link: '/' }, // 导航栏中的“开始”链接
@@ -30,6 +32,7 @@ export default defineConfig({
       {
         text: '目录', // 侧边栏标题
         items: [
+          { text: '主页', link: '/' }, // 侧边栏中的“索引”链接
           { text: '索引', link: '/get-started' }, // 侧边栏中的“索引”链接
           { text: '联系', link: '/about' } // 侧边栏中的“关于”链接
         ],
