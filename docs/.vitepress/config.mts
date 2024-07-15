@@ -19,7 +19,7 @@ export default defineConfig({
 
   themeConfig: {
     //logo
-    logo: 'https://pub-c193d05a6fc642ffad336f4beb1a9942.r2.dev/svglogo.svg',
+    logo: 'https://pub-c193d05a6fc642ffad336f4beb1a9942.r2.dev/Images/svglogo.svg',
     // 导航栏配置
     nav: [
       { text: '首页', link: '/' }, // 导航栏中的“开始”链接
