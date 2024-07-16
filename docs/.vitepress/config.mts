@@ -54,7 +54,7 @@ export default defineConfig({
             items: [
               { text: '10K 标准柜点表', link: '/Page/10K-Standard-Uploadplate' }, // 三级标题及链接
               { text: '10K 自愈点表', link: '/Page/10K-Automatic-Uploadplate' },
-              { text: '10K 充气柜SF6点表', link: '/Page/10K-AirSF6-Uploadplate' },
+              { text: '10K 充气柜（SF6）点表', link: '/Page/10K-AirSF6-Uploadplate' },
               { text: '10K 报警灯配置表', link: '/Page/10K-Alarmplate' }
             ]
           },
