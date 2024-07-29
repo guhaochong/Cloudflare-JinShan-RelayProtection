@@ -38,7 +38,7 @@ features:
   - icon: 📑
     title: 巡缺汇报
     details: 巡视缺陷填报 
-    link: https://vpxgs4916b.feishu.cn/share/base/form/shrcnppYCZAULhYhTpx5X69gtCf  #  链接
+    link: https://vpxgs4916b.feishu.cn/share/base/form/shrcn3oVNKMr8fE9mcG4jL1q7vf  #  链接
     linkText: 跳转外部
   - icon: 📟
     title: 巡缺日志查询
