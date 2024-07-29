@@ -31,8 +31,18 @@ features:
     link: https://vpxgs4916b.feishu.cn/share/base/form/shrcn6sUMAylqmHk3sRLb4zOZhg  #  链接
     linkText: 跳转外部
   - icon: 🔎
-    title: 日志查询
+    title: 工作日志查询
     details: 可精确查询工作汇报记录
     link: https://vpxgs4916b.feishu.cn/share/base/query/shrcnl4iferiPW2Tp5m05PkBczb   #  链接
+    linkText: 跳转外部（需授权查看）
+  - icon: 📑
+    title: 巡缺汇报
+    details: 巡视缺陷填报 
+    link: https://vpxgs4916b.feishu.cn/share/base/form/shrcnppYCZAULhYhTpx5X69gtCf  #  链接
+    linkText: 跳转外部
+  - icon: 📟
+    title: 巡缺日志查询
+    details: 可精确查询巡视缺陷汇报记录 
+    link: https://vpxgs4916b.feishu.cn/share/base/query/shrcnJXX9IHP8Uw65UWV8JsLzGd  #  链接
     linkText: 跳转外部（需授权查看）
 ---
