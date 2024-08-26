@@ -93,7 +93,7 @@ export default defineConfig({
           {
             text: '旧 K型号 开关站', // 二级标题
             collapsible: true, // 允许折叠
-            collapsed: false, // 默认展开
+            collapsed: true, // 默认展开
             items: [
               { text: '旧 10K 标准柜点表', link: '/Page/10K-Standard-Uploadplate' }, // 三级标题及链接
               { text: '旧 10K 自愈点表', link: '/Page/10K-Automatic-Uploadplate' },
@@ -103,7 +103,7 @@ export default defineConfig({
           {
             text: '旧 P型号 小区站', // 二级标题
             collapsible: true, // 允许折叠
-            collapsed: false, // 默认展开
+            collapsed: true, // 默认展开
             items: [
               { text: '旧 10P 标准柜点表', link: '/Page/10P-Standard-Uploadplate' },
               { text: '旧 10P 充气柜点表', link: '/Page/10P-Air-Uploadplate' },
