@@ -95,9 +95,7 @@ export default defineConfig({
             collapsible: true, // 允许折叠
             collapsed: true, // 默认展开
             items: [
-              { text: '旧 10K 标准柜点表', link: '/Page/10K-Standard-Uploadplate' }, // 三级标题及链接
-              { text: '旧 10K 自愈点表', link: '/Page/10K-Automatic-Uploadplate' },
-              { text: '旧 10K 充气柜（SF6）点表', link: '/Page/10K-AirSF6-Uploadplate' },
+              { text: '旧 10K 标准柜点表', link: '/Page/OLD/OLD-10K-Standard-Uploadplate' }, // 三级标题及链接
             ]
           },
           {
@@ -105,8 +103,7 @@ export default defineConfig({
             collapsible: true, // 允许折叠
             collapsed: true, // 默认展开
             items: [
-              { text: '旧 10P 标准柜点表', link: '/Page/10P-Standard-Uploadplate' },
-              { text: '旧 10P 充气柜点表', link: '/Page/10P-Air-Uploadplate' },
+              { text: '旧 10P 标准柜点表', link: '/Page/OLD/OLD-10K-Standard-Uploadplate' },
             ]
           }
         ]
