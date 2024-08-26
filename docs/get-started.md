@@ -5,20 +5,32 @@
 ## 点表库
 
 - K型 开关站
-  - [10千伏 K型 标准 点表](/Page/10K-Standard-Uploadplate.md) 
-  -  [10千伏 K型 充气柜（SF6） 点表](/Page/10K-AirSF6-Uploadplate.md)<Badge type="warning" text="适用于 三工位柜体" />
-  - [10千伏 K型 自愈 点表](/Page/10K-Automatic-Uploadplate.md)
   - [10千伏 K型 报警灯 配置表](Page/10K-Alarmplate.md)<Badge type="warning" text="适用于 统一型后台装置" />
+  - [10千伏 K型 标准 点表](/Page/10K-Standard-Uploadplate.md) <Badge type="warning" text="适用于 无自愈 有FA" />
+  - [10千伏 K型 自愈 点表](/Page/10K-Automatic-Uploadplate.md)<Badge type="warning" text="适用于 有自愈 有FA" />
+  - [10千伏 K型 充气柜 点表](/Page/10K-AirSF6-Uploadplate.md)<Badge type="warning" text="适用于 三工位柜体" />
 
 - P型 小区站
-  - [10千伏 P型 标准 点表](/Page/10P-Standard-Uploadplate.md)
-  - [10千伏 P型 充气柜 点表](/Page/10P-Air-Uploadplate.md)<Badge type="warning" text="适用于 三工位柜体" />
   - [10千伏 P型 报警灯 配置表](/Page/10P-Alarmplate.md)<Badge type="warning" text="适用于 统一型后台装置" />
+  - [10千伏 P型 充气柜 点表](/Page/10P-Air-Uploadplate.md)<Badge type="warning" text="适用于 三工位柜体" />
+  - [10千伏 P型 标准 点表](/Page/10P-Standard-Uploadplate.md)
+
 
 
 ## 铭牌库
 
 - [10千伏 K型号 标准 二次铭牌](/Page/10K-Standard-Nameplate.md)
+
+## 旧文库
+
+- K型 开关站
+  - OLD
+  - OLD
+- P型 开关站
+  - OLD
+  - OLD
+
+
 
 ## 测试库
 
