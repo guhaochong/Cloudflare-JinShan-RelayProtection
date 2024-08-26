@@ -88,7 +88,7 @@ export default defineConfig({
       {
         text: '旧版文库', // 侧边栏标题
         collapsible: true, // 允许折叠
-        collapsed: false, // 默认展开
+        collapsed: true, // 默认展开
         items: [
           {
             text: '旧 K型号 开关站', // 二级标题
