@@ -5,7 +5,7 @@
 # TEST 测试
 
 ::: code-group
-```点表:line-numbers=0 {1}
+```txt:line-numbers=0 {1}
 事故总信号 // [!code highlight]
 10千伏一段自切未准备
 10千伏二段自切未准备 // [!code highlight]
@@ -22,7 +22,7 @@
 站内空开故障
 站内微机装置通讯故障
 ```
-```定义:line-numbers=1 {1}
+```txt:line-numbers=1 {1}
 合成事故总
 一段自切保护未准备信号
 二段自切保护未准备信号
@@ -47,7 +47,7 @@
 
 
 
-```顶顶顶
+```txt
 
 ```
 
