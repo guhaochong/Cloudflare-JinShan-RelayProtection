@@ -84,7 +84,7 @@ export default defineConfig({
             ]
           },
         ]
-      }，
+      },
       {
         text: '旧版文库', // 侧边栏标题
         collapsible: true, // 允许折叠
