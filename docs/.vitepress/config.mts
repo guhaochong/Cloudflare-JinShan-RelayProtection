@@ -103,7 +103,7 @@ export default defineConfig({
             collapsible: true, // 允许折叠
             collapsed: true, // 默认展开
             items: [
-              { text: '旧 10P 标准柜点表', link: '/Page/OLD/OLD-10K-Standard-Uploadplate' },
+              { text: '旧 10P 标准柜点表', link: '/Page/OLD/OLD-10P-Standard-Uploadplate' },
               { text: '旧 10P 充气柜点表', link: '/Page/OLD/OLD-10P-Air-Uploadplate' },
             ]
           }
