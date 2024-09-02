@@ -15,6 +15,7 @@ export default defineConfig({
   markdown: {
     math: true, // 启用数学公式支持
     async highlighter(code, lang) {
+
       const highlighter = await getSingletonHighlighter();
       return highlighter.codeToHtml(code, { lang });
     }
@@ -52,10 +53,8 @@ export default defineConfig({
             collapsible: true, // 允许折叠
             collapsed: false, // 默认展开
             items: [
-              { text: '10K 报警灯配置表', link: '/Page/10K-Alarmplate' },
+              { text: '10K 报警灯配置表', link: '/Page/10K-Alarmplate' }, // 三级标题及链接
               { text: '10K 标准柜点表', link: '/Page/10K-Standard-Uploadplate' }, // 三级标题及链接
-              { text: '10K 自愈点表', link: '/Page/10K-Automatic-Uploadplate' },
-              { text: '10K 充气柜点表', link: '/Page/10K-AirSF6-Uploadplate' },
             ]
           },
           {
@@ -64,7 +63,6 @@ export default defineConfig({
             collapsed: false, // 默认展开
             items: [
               { text: '10P 报警灯配置表', link: '/Page/10P-Alarmplate' },
-              { text: '10P 充气柜点表', link: '/Page/10P-Air-Uploadplate' },
               { text: '10P 标准柜点表', link: '/Page/10P-Standard-Uploadplate' },
             ]
           }
@@ -96,6 +94,8 @@ export default defineConfig({
             collapsed: true, // 默认展开
             items: [
               { text: '旧 10K 标准柜点表', link: '/Page/OLD/OLD-10K-Standard-Uploadplate' }, // 三级标题及链接
+              { text: '旧 10K 自愈点表', link: '/Page/OLD/OLD-10K-Automatic-Uploadplate' },
+              { text: '旧 10K 充气柜点表', link: '/Page/OLD/OLD-10K-AirSF6-Uploadplate' },
             ]
           },
           {
@@ -104,6 +104,7 @@ export default defineConfig({
             collapsed: true, // 默认展开
             items: [
               { text: '旧 10P 标准柜点表', link: '/Page/OLD/OLD-10K-Standard-Uploadplate' },
+              { text: '旧 10P 充气柜点表', link: '/Page/OLD/OLD-10P-Air-Uploadplate' },
             ]
           }
         ]
