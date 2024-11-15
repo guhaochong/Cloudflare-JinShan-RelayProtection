@@ -6,10 +6,11 @@
 
 - K型 开关站
   - [10千伏 K型 报警灯 配置表](Page/10K-Alarmplate.md)<Badge type="warning" text="适用于 统一型后台装置" />
-  - [10千伏 K型 标准 点表](/Page/10K-Standard-Uploadplate.md) <Badge type="warning" text="适用于 标准柜体 带自愈 带FA" />
+  - [10千伏 K型 标准柜 点表](/Page/10K-Standard-Uploadplate.md) <Badge type="warning" text="适用于 标准柜体 带自愈 带FA" />
+  - [10千伏 K型 充气柜 点表](/Page/10K-Air-Uploadplate.md) <Badge type="warning" text="适用于 三工位充气柜体 带自愈 带FA" />
 - P型 小区站
   - [10千伏 P型 报警灯 配置表](/Page/10P-Alarmplate.md)<Badge type="warning" text="适用于 统一型后台装置" />
-  - [10千伏 P型 标准 点表](/Page/10P-Standard-Uploadplate.md)<Badge type="warning" text="适用于 三工位柜体 带FA" />
+  - [10千伏 P型 标准柜 点表](/Page/10P-Standard-Uploadplate.md)<Badge type="warning" text="适用于 三工位柜体 带FA" />
 
 
 
