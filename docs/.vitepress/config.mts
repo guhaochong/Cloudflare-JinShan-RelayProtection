@@ -55,6 +55,7 @@ export default defineConfig({
             items: [
               { text: '10K 报警灯配置表', link: '/Page/10K-Alarmplate' }, // 三级标题及链接
               { text: '10K 标准柜点表', link: '/Page/10K-Standard-Uploadplate' }, // 三级标题及链接
+              { text: '10K 充气柜点表', link: '/Page/10K-Air-Uploadplate' }, // 三级标题及链接
             ]
           },
           {
