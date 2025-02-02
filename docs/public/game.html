@@ -145,7 +145,7 @@
             display: inline-block;
             width: 20px;
             height: 20px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg&#34;  viewBox="0 0 24 24" fill="%23ffd700"><path d="M12 1.5l3.09 6.26L22 8.27l-5 4.87 1.18 6.88L12 16.5l-6.18 3.52L7 13.14 2 8.27l6.91-1.51L12 1.5z"/></svg>');
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffd700"><path d="M12 1.5l3.09 6.26L22 8.27l-5 4.87 1.18 6.88L12 16.5l-6.18 3.52L7 13.14 2 8.27l6.91-1.51L12 1.5z"/></svg>');
             background-size: contain;
             margin-left: 8px;
         }
@@ -285,6 +285,26 @@
             color: #1d1d1f;
             margin-left: auto;
         }
+        .score-options {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .score-options label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #1d1d1f;
+        }
+        .score-options input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #007aff;
+            border-radius: 4px;
+        }
         @media (max-width: 576px) {
             .player-row {
                 flex-direction: column;
@@ -365,6 +385,20 @@
 
         <div id="scoreInputSection" class="hidden">
             <h2>🎲 当前回合</h2>
+            <div class="score-options">
+                <label>
+                    <input type="checkbox" id="unitScoreOption" checked>
+                    个位数
+                </label>
+                <label>
+                    <input type="checkbox" id="tenScoreOption">
+                    十位数
+                </label>
+                <label>
+                    <input type="checkbox" id="hundredScoreOption">
+                    百位数
+                </label>
+            </div>
             <div id="playerInputs"></div>
             <div class="button-group">
                 <button class="primary-btn" id="confirmScoreBtn" onclick="calculateScore()" disabled>请先选择胜利者</button>
@@ -400,15 +434,15 @@
         </div>
 
         <div id="exportSection" class="hidden">
-            <h2>💾 数据保存</h2>
+            <h2>🎲 数据保存</h2>
             <div class="button-group">
                 <button class="success-btn" onclick="exportData()">导出记录</button>
             </div>
         </div>
 
         <div class="footer">
-            <p>程序作者: <a href="https://github.com/guhaochong&#34;  target="_blank">guhaochong</a></p>
-            <p>生成日期: 2023-10-20 | 版本号: 1.03</p>
+            <p>程序作者: <a href="https://github.com/guhaochong" target="_blank">guhaochong</a></p>
+            <p>生成日期: 2025-02-02 | 版本号: 1.05</p>
         </div>
     </div>
 
@@ -427,6 +461,7 @@
             { value: 7, class: 'unit' },
             { value: 8, class: 'unit' },
             { value: 9, class: 'unit' },
+            { value: 10, class: 'unit' }, // 添加的 10 分选项
             { value: 10, class: 'tens' },
             { value: 20, class: 'tens' },
             { value: 30, class: 'tens' },
@@ -466,13 +501,29 @@
             document.getElementById('historySection').classList.remove('hidden');
             document.getElementById('exportSection').classList.remove('hidden');
 
+            // 默认只勾选个位数计分
+            document.getElementById('unitScoreOption').checked = true;
+            document.getElementById('tenScoreOption').checked = false;
+            document.getElementById('hundredScoreOption').checked = false;
+
             renderScoreInputs();
             updateStats();
+
+            // 添加事件监听器
+            document.getElementById('unitScoreOption').addEventListener('change', renderScoreInputs);
+            document.getElementById('tenScoreOption').addEventListener('change', renderScoreInputs);
+            document.getElementById('hundredScoreOption').addEventListener('change', renderScoreInputs);
+
+            // 滚动到页面顶部
+            window.scrollTo(0, 0);
         }
 
         function renderScoreInputs() {
             const container = document.getElementById('playerInputs');
-            // 将胜利者放在最前面
+            const unitScoreOption = document.getElementById('unitScoreOption').checked;
+            const tenScoreOption = document.getElementById('tenScoreOption').checked;
+            const hundredScoreOption = document.getElementById('hundredScoreOption').checked;
+
             const sortedPlayers = currentWinner ? [currentWinner, ...players.filter(p => p !== currentWinner)] : players;
             container.innerHTML = sortedPlayers.map(player => `
                 <div class="player-row">
@@ -492,28 +543,28 @@
                                 清零
                             </button>
                             <div class="score-buttons">
-                                ${SCORE_BUTTONS.slice(0, 9).map(btn => `
+                                ${unitScoreOption ? SCORE_BUTTONS.slice(0, 10).map(btn => `
                                     <button class="${btn.class}" onclick="adjustScore('${player}', ${btn.value})" 
                                         ${currentWinner === player ? 'disabled' : ''}>
                                         +${btn.value}
                                     </button>
-                                `).join('')}
+                                `).join('') : ''}
                             </div>
                             <div class="score-buttons">
-                                ${SCORE_BUTTONS.slice(9, 18).map(btn => `
+                                ${tenScoreOption ? SCORE_BUTTONS.slice(10, 19).map(btn => `
                                     <button class="${btn.class}" onclick="adjustScore('${player}', ${btn.value})" 
                                         ${currentWinner === player ? 'disabled' : ''}>
                                         +${btn.value}
                                     </button>
-                                `).join('')}
+                                `).join('') : ''}
                             </div>
                             <div class="score-buttons">
-                                ${SCORE_BUTTONS.slice(18).map(btn => `
+                                ${hundredScoreOption ? SCORE_BUTTONS.slice(19).map(btn => `
                                     <button class="${btn.class}" onclick="adjustScore('${player}', ${btn.value})" 
                                         ${currentWinner === player ? 'disabled' : ''}>
                                         +${btn.value}
                                     </button>
-                                `).join('')}
+                                `).join('') : ''}
                             </div>
                         </div>
                     </div>
@@ -678,18 +729,17 @@
                 `总回合数：${historyData.length}`,
                 '',
                 '=== 历史记录 ===',
-                ...historyData.map(r => [
-                    r.round,
-                    r.winner,
-                    `+${r.gained}`,
-                    Object.entries(r.details).map(([p,s]) => `${p}:-${s}`).join(','),
-                ].join('\t')),
-                '',
-                '=== 最终得分 ===',
-                ...players.map(p => `${p}: ${totalScores[p]}`)
-            ].join('\n');
+            ];
+            historyData.forEach(r => {
+                data.push(`${r.round}\t${r.winner}\t+${r.gained}\t${Object.entries(r.details).map(([p,s]) => `${p}:-${s}`).join(',')}`);
+            });
+            data.push('');
+            data.push('=== 最终得分 ===');
+            players.forEach(p => {
+                data.push(`${p}: ${totalScores[p]}`);
+            });
 
-            const blob = new Blob([data], {type: 'text/plain'});
+            const blob = new Blob([data.join('\n')], {type: 'text/plain'});
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
