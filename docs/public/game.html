@@ -1,41 +1,59 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>桌游计分系统</title>
     <style>
+        /* 全局样式 */
         body {
+            -webkit-text-size-adjust: 100%;
+            /* 防止iOS Safari自动调整字体大小 */
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f5f5f7;
+            /* 浅灰色背景 */
             color: #1d1d1f;
+            /* 深灰色文字 */
         }
+
+        /* 主容器样式 */
         .container {
             max-width: 800px;
+            /* 最大宽度 */
             margin: 0 auto;
+            /* 水平居中 */
             padding: 20px;
-            background-color: #ffffff;
+            background-color: #fff;
+            /* 白色背景 */
             border-radius: 12px;
+            /* 圆角 */
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            /* 阴影 */
         }
-        h1 {
+
+        /* 标题样式 */
+        h1,
+        h2 {
             text-align: center;
             color: #1d1d1f;
             margin-bottom: 30px;
             font-size: 28px;
             font-weight: 600;
         }
+
         h2 {
-            color: #1d1d1f;
             font-size: 22px;
-            font-weight: 600;
             margin-bottom: 20px;
         }
+
+        /* 输入框组样式 */
         .input-group {
             margin-bottom: 20px;
         }
+
         .input-group label {
             display: block;
             font-size: 16px;
@@ -43,6 +61,7 @@
             margin-bottom: 8px;
             color: #1d1d1f;
         }
+
         .input-group select,
         .input-group input {
             width: 100%;
@@ -50,21 +69,29 @@
             font-size: 16px;
             border: 1px solid #d1d1d6;
             border-radius: 8px;
-            background-color: #ffffff;
+            background-color: #fff;
             color: #1d1d1f;
             transition: border-color 0.2s;
         }
+
         .input-group select:focus,
         .input-group input:focus {
             border-color: #007aff;
+            /* 聚焦时边框颜色 */
             outline: none;
         }
+
+        /* 按钮组样式 */
         .button-group {
             display: flex;
             gap: 10px;
             margin-top: 25px;
             flex-wrap: wrap;
+            /* 自动换行 */
+            justify-content: center;
+            /* 水平居中 */
         }
+
         .button-group button {
             padding: 12px 24px;
             font-size: 16px;
@@ -74,30 +101,49 @@
             cursor: pointer;
             transition: background-color 0.2s, transform 0.2s;
         }
+
         .button-group button:active {
             transform: scale(0.98);
+            /* 点击时缩小 */
         }
+
+        /* 主要按钮样式 */
         .primary-btn {
             background-color: #007aff;
-            color: #ffffff;
+            /* 蓝色 */
+            color: #fff;
         }
+
         .primary-btn:hover {
             background-color: #0063cc;
+            /* 深蓝色 */
         }
+
+        /* 危险按钮样式 */
         .danger-btn {
             background-color: #ff3b30;
-            color: #ffffff;
+            /* 红色 */
+            color: #fff;
         }
+
         .danger-btn:hover {
             background-color: #cc2e25;
+            /* 深红色 */
         }
+
+        /* 成功按钮样式 */
         .success-btn {
             background-color: #34c759;
-            color: #ffffff;
+            /* 绿色 */
+            color: #fff;
         }
+
         .success-btn:hover {
             background-color: #2aa44f;
+            /* 深绿色 */
         }
+
+        /* 玩家行样式 */
         .player-row {
             display: flex;
             align-items: center;
@@ -108,26 +154,30 @@
             border-radius: 12px;
             position: relative;
         }
+
+        /* 胜利者按钮样式 */
         .win-button {
-            padding: 12px 24px;
+            padding: 12px;
             font-size: 16px;
             font-weight: 500;
             border: 2px solid #d1d1d6;
             border-radius: 12px;
-            background-color: #ffffff;
+            background-color: #fff;
             cursor: pointer;
-            flex: 1;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             transition: all 0.3s ease;
+            position: relative;
         }
+
         .win-button.selected {
             border-color: #34c759;
             background: linear-gradient(145deg, #e6ffe6, #c3e6cb);
             transform: scale(1.02);
             box-shadow: 0 2px 8px rgba(52, 199, 89, 0.3);
         }
+
         .win-button.selected::after {
             content: "🎉 本局胜利者";
             position: absolute;
@@ -141,6 +191,8 @@
             transform: rotate(10deg);
             animation: bounce 0.8s ease;
         }
+
+        /* 胜利者图标 */
         .winner-icon {
             display: inline-block;
             width: 20px;
@@ -149,15 +201,19 @@
             background-size: contain;
             margin-left: 8px;
         }
+
+        /* 分数输入区域样式 */
         .score-inputs {
             flex: 2;
             display: flex;
             gap: 10px;
             align-items: center;
         }
+
         .score-inputs[hidden] {
             display: none !important;
         }
+
         .score-inputs input {
             width: 100px;
             padding: 15px;
@@ -166,19 +222,24 @@
             border: 2px solid #d1d1d6;
             border-radius: 12px;
             text-align: center;
-            background-color: #ffffff;
+            background-color: #fff;
             color: #1d1d1f;
             transition: border-color 0.2s;
         }
+
         .score-inputs input:focus {
             border-color: #007aff;
             outline: none;
         }
+
+        /* 分数按钮组样式 */
         .score-buttons {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
+            /* 4列 */
             gap: 8px;
         }
+
         .score-buttons button {
             padding: 10px;
             font-size: 16px;
@@ -188,25 +249,39 @@
             cursor: pointer;
             transition: background-color 0.2s, transform 0.2s;
         }
+
         .score-buttons button:active {
             transform: scale(0.98);
         }
+
+        /* 个位数按钮样式 */
         .score-buttons button.unit {
-            background-color: #6c757d;
-            color: #ffffff;
+            background-color: #2196f3;
+            /* 蓝色 */
+            color: #fff;
         }
+
+        /* 十位数按钮样式 */
         .score-buttons button.tens {
-            background-color: #007aff;
-            color: #ffffff;
+            background-color: #1dd8a0;
+            /* 紫色 */
+            color: #fff;
         }
+
+        /* 百位数按钮样式 */
         .score-buttons button.hundreds {
-            background-color: #34c759;
-            color: #ffffff;
+            background-color: #f02e28;
+            /* 绿色 */
+            color: #fff;
         }
+
+        /* 重置按钮样式 */
         .reset-btn {
             background-color: #ff9500;
-            color: #ffffff;
-            padding: 10px 15px;
+            /* 橙色 */
+            color: #fff;
+            padding: 10px;
+            /* 与 .score-buttons button 统一 */
             font-size: 16px;
             font-weight: 500;
             border: none;
@@ -214,125 +289,180 @@
             cursor: pointer;
             transition: background-color 0.2s, transform 0.2s;
         }
+
         .reset-btn:active {
             transform: scale(0.98);
         }
+
         .reset-btn:hover {
             background-color: #cc7a00;
+            /* 深橙色 */
         }
+
+        /* 历史记录表格样式 */
         .history-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
-            background-color: #ffffff;
+            background-color: #fff;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
+
         .history-table th,
         .history-table td {
             padding: 12px;
             border: 1px solid #e5e5ea;
             text-align: center;
         }
+
         .history-table th {
             background-color: #f5f5f7;
             font-weight: 600;
             color: #1d1d1f;
         }
+
+        /* 负分样式 */
         .negative-score {
             color: #ff3b30;
+            /* 红色 */
             font-weight: bold;
         }
+
+        /* 正分样式 */
         .positive-score {
             color: #34c759;
+            /* 绿色 */
             font-weight: bold;
         }
+
+        /* 玩家排名样式 */
         .player-rank {
             padding: 16px;
             margin: 10px 0;
             border-radius: 12px;
-            background: #ffffff;
+            background: #fff;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
             transition: transform 0.2s;
         }
+
         .player-rank:hover {
             transform: translateX(5px);
         }
+
+        /* 前三名特殊样式 */
         .rank-1 {
             background: linear-gradient(145deg, #fff3cd, #ffe69c);
             border-left: 5px solid #ffd700;
+            /* 金色 */
         }
+
         .rank-2 {
             background: linear-gradient(145deg, #e9ecef, #dae0e5);
             border-left: 5px solid #c0c0c0;
+            /* 银色 */
         }
+
         .rank-3 {
             background: linear-gradient(145deg, #f8e5d6, #e7c9b1);
             border-left: 5px solid #cd7f32;
+            /* 铜色 */
         }
+
+        /* 排名奖牌样式 */
         .rank-medal {
             font-size: 20px;
             margin-right: 15px;
             width: 40px;
             text-align: center;
         }
+
+        /* 排名文本样式 */
         .rank-text {
             font-size: 16px;
             font-weight: 600;
             color: #1d1d1f;
             margin-left: auto;
         }
+
+        /* 分数选项样式（个位、十位、百位） */
         .score-options {
             margin-bottom: 20px;
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
+            justify-content: center;
         }
-        .score-options label {
-            display: flex;
-            align-items: center;
-            gap: 8px;
+
+        .score-options button {
+            padding: 10px 15px;
             font-size: 16px;
             font-weight: 500;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.2s, color 0.2s;
+            background-color: #f5f5f7;
             color: #1d1d1f;
+            border: 1px solid #d1d1d6;
         }
-        .score-options input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            accent-color: #007aff;
-            border-radius: 4px;
+
+        .score-options button.selected {
+            background-color: #007aff;
+            /* 选中时为蓝色 */
+            color: #fff;
         }
+
+        /* 响应式样式（小屏幕） */
         @media (max-width: 576px) {
             .player-row {
                 flex-direction: column;
                 align-items: stretch;
             }
+
             .score-inputs {
                 flex-direction: column;
             }
+
             .score-buttons {
                 grid-template-columns: repeat(2, 1fr);
+                /* 2列 */
             }
+
             .reset-btn {
                 width: 100%;
                 margin-top: 8px;
             }
+
             .win-button.selected::after {
                 top: -5px;
                 right: -5px;
                 font-size: 10px;
             }
         }
+
+        /* 隐藏元素样式 */
         .hidden {
             display: none;
         }
+
+        /* 动画 */
         @keyframes bounce {
-            0%, 100% { transform: translateY(0) rotate(10deg); }
-            50% { transform: translateY(-5px) rotate(12deg); }
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(10deg);
+            }
+
+            50% {
+                transform: translateY(-5px) rotate(12deg);
+            }
         }
+
+        /* 页脚样式 */
         .footer {
             text-align: center;
             margin-top: 30px;
@@ -342,22 +472,95 @@
             flex-direction: column;
             gap: 5px;
         }
+
         .footer a {
             color: #007aff;
             text-decoration: none;
         }
+
         .footer a:hover {
             text-decoration: underline;
         }
+
         .footer p {
             margin: 0;
         }
+
+        /* 胜利者选择区域和失败者输入区域样式 */
+        #winnerSelectionSection,
+        #loserInputSection {
+            background-color: #f5f5f7;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* 胜利者按钮容器样式 */
+        #winnerButtons {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(120px, 1fr));
+            /* 默认4列 */
+            gap: 10px;
+            justify-content: center;
+        }
+
+        /* 响应式布局（小屏幕） */
+        @media (max-width: 768px) {
+            #winnerButtons {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                /* 自动调整 */
+            }
+        }
+
+        /* 失败者输入区域样式 */
+        #loserInputs .player-row {
+            background-color: #fff;
+            border: 1px solid #d1d1d6;
+        }
+
+        /* 显示胜利者得分样式 */
+        #winnerDisplay {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        #winnerDisplay .winner-name {
+            font-weight: bold;
+            color: #34c759;
+            /* 绿色 */
+        }
+
+        /* 分数调整按钮（加减分）样式 */
+        .score-adjust-btn {
+            padding: 5px 10px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #fff;
+        }
+
+        .score-adjust-btn:hover {
+            background-color: #eee;
+        }
+
+        /* 分数显示样式 */
+        .score-display {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 0 15px;
+            min-width: 50px;
+            text-align: center;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>🏆 桌游计分系统</h1>
 
+        <!-- 玩家设置区域 -->
         <div id="playerSetupSection">
             <div class="input-group">
                 <label>选择游戏人数 (3-8人):</label>
@@ -374,6 +577,7 @@
                 </div>
             </div>
 
+            <!-- 玩家名称输入区域 -->
             <div id="nameInputSection" class="hidden">
                 <h2>🎮 玩家设置</h2>
                 <div id="nameInputs"></div>
@@ -383,35 +587,55 @@
             </div>
         </div>
 
+        <!-- 分数输入区域 -->
         <div id="scoreInputSection" class="hidden">
             <h2>🎲 当前回合</h2>
+
+            <!-- 分数选项（个位、十位、百位） -->
             <div class="score-options">
-                <label>
-                    <input type="checkbox" id="unitScoreOption" checked>
+                <button id="unitScoreOption" class="score-option-btn selected" onclick="toggleScoreOption('unit')">
                     个位数
-                </label>
-                <label>
-                    <input type="checkbox" id="tenScoreOption">
+                </button>
+                <button id="tenScoreOption" class="score-option-btn" onclick="toggleScoreOption('ten')">
                     十位数
-                </label>
-                <label>
-                    <input type="checkbox" id="hundredScoreOption">
+                </button>
+                <button id="hundredScoreOption" class="score-option-btn" onclick="toggleScoreOption('hundred')">
                     百位数
-                </label>
+                </button>
             </div>
-            <div id="playerInputs"></div>
+
+            <!-- 胜利者选择区域 -->
+            <div id="winnerSelectionSection">
+                <h2>🏆 选择本局胜利者</h2>
+                <div id="winnerButtons"></div>
+                <div class="warning-text" id="winnerWarningMessage">※ 请选择本局胜利者</div>
+            </div>
+
+            <!-- 显示胜利者得分 -->
+            <div id="winnerDisplay"></div>
+
+            <!-- 失败者输入区域 -->
+            <div id="loserInputSection" class="hidden">
+                <h2>💔 失败者得分</h2>
+                <div id="loserInputs"></div>
+            </div>
+
+            <!-- 确认得分按钮 -->
             <div class="button-group">
-                <button class="primary-btn" id="confirmScoreBtn" onclick="calculateScore()" disabled>请先选择胜利者</button>
-                <button class="danger-btn" onclick="resetGame()">重新开始</button>
+                <button class="primary-btn" id="confirmScoreBtn" onclick="calculateScore()" disabled>
+                    确认得分
+                </button>
                 <div class="warning-text" id="warningMessage">※ 请先选择本局胜利者</div>
             </div>
         </div>
 
+        <!-- 实时排名区域 -->
         <div id="statsSection" class="hidden">
             <h2>📊 实时排名</h2>
             <div id="stats"></div>
         </div>
 
+        <!-- 游戏记录区域 -->
         <div id="historySection" class="hidden">
             <h2>📜 游戏记录</h2>
             <table class="history-table">
@@ -428,324 +652,509 @@
             </table>
         </div>
 
+        <!-- 本局结果区域 -->
         <div id="resultsSection" class="hidden">
             <h2>📌 本局结果</h2>
             <div id="roundResult"></div>
         </div>
 
+        <!-- 数据保存区域 -->
         <div id="exportSection" class="hidden">
             <h2>🎲 数据保存</h2>
             <div class="button-group">
                 <button class="success-btn" onclick="exportData()">导出记录</button>
+                <button class="danger-btn" id="resetBtn" onclick="resetGame()">重新开始</button>
             </div>
         </div>
 
+        <!-- 页脚 -->
         <div class="footer">
             <p>程序作者: <a href="https://github.com/guhaochong" target="_blank">guhaochong</a></p>
-            <p>生成日期: 2025-02-02 | 版本号: 1.05</p>
+            <p>生成日期: 2025-02-06 | 版本号: 1.13</p>
         </div>
     </div>
-
+    <!-- CHUNK 1 END -  请将下一个代码块附加到此处 -->
     <script>
+        // 玩家数组
         let players = [];
+        // 总分对象
         let totalScores = {};
+        // 当前胜利者
         let currentWinner = null;
+        // 历史记录数组
         let historyData = [];
-        const SCORE_BUTTONS = [
-            { value: 1, class: 'unit' },
-            { value: 2, class: 'unit' },
-            { value: 3, class: 'unit' },
-            { value: 4, class: 'unit' },
-            { value: 5, class: 'unit' },
-            { value: 6, class: 'unit' },
-            { value: 7, class: 'unit' },
-            { value: 8, class: 'unit' },
-            { value: 9, class: 'unit' },
-            { value: 10, class: 'unit' }, // 添加的 10 分选项
-            { value: 10, class: 'tens' },
-            { value: 20, class: 'tens' },
-            { value: 30, class: 'tens' },
-            { value: 40, class: 'tens' },
-            { value: 50, class: 'tens' },
-            { value: 60, class: 'tens' },
-            { value: 70, class: 'tens' },
-            { value: 80, class: 'tens' },
-            { value: 90, class: 'tens' },
-            { value: 100, class: 'hundreds' }
+        // 当前激活的分数选项
+        let activeScoreOptions = {
+            unit: true,
+            // 个位数
+            ten: false,
+            // 十位数
+            hundred: false // 百位数
+        };
+    
+        // 分数按钮配置
+        const SCORE_BUTTONS = [{
+                value: 1,
+                class: 'unit'
+            },
+            {
+                value: 2,
+                class: 'unit'
+            },
+            {
+                value: 3,
+                class: 'unit'
+            },
+            {
+                value: 4,
+                class: 'unit'
+            },
+            {
+                value: 5,
+                class: 'unit'
+            },
+            {
+                value: 6,
+                class: 'unit'
+            },
+            {
+                value: 7,
+                class: 'unit'
+            },
+            {
+                value: 8,
+                class: 'unit'
+            },
+            {
+                value: 9,
+                class: 'unit'
+            },
+            {
+                value: 10,
+                class: 'unit'
+            },
+            {
+                value: 10,
+                class: 'tens'
+            },
+            {
+                value: 20,
+                class: 'tens'
+            },
+            {
+                value: 30,
+                class: 'tens'
+            },
+            {
+                value: 40,
+                class: 'tens'
+            },
+            {
+                value: 50,
+                class: 'tens'
+            },
+            {
+                value: 60,
+                class: 'tens'
+            },
+            {
+                value: 70,
+                class: 'tens'
+            },
+            {
+                value: 80,
+                class: 'tens'
+            },
+            {
+                value: 90,
+                class: 'tens'
+            },
+            {
+                value: 100,
+                class: 'hundreds'
+            }
         ];
-
+    
+        // 设置玩家
         function setupPlayers() {
             const playerCount = parseInt(document.getElementById('playerCount').value);
             document.getElementById('nameInputSection').classList.remove('hidden');
-            
             const nameInputs = document.getElementById('nameInputs');
-            nameInputs.innerHTML = Array.from({length: playerCount}, (_, i) => `
+            nameInputs.innerHTML = Array.from({
+                length: playerCount
+            }, (_, i) => `
                 <div class="input-group">
-                    <label>玩家 ${i+1} 名称：</label>
-                    <input type="text" id="player${i+1}Name" placeholder="玩家 ${i+1}">
+                    <label>玩家 ${i + 1} 名称：</label>
+                    <input type="text" id="player${i + 1}Name" placeholder="玩家 ${i + 1}">
                 </div>
             `).join('');
         }
-
+    
+        // 开始游戏
         function startGame() {
             const playerCount = parseInt(document.getElementById('playerCount').value);
-            players = Array.from({length: playerCount}, (_, i) => {
-                const name = document.getElementById(`player${i+1}Name`).value.trim() || `玩家 ${i+1}`;
+            players = Array.from({
+                length: playerCount
+            }, (_, i) => {
+                const name = document.getElementById(`player${i + 1}Name`).value.trim() || `玩家 ${i + 1}`;
                 totalScores[name] = 0;
                 return name;
             });
-
+            // 隐藏玩家设置区域
             document.getElementById('playerSetupSection').style.display = 'none';
+            // 显示分数输入、实时排名、历史记录和导出区域
             document.getElementById('scoreInputSection').classList.remove('hidden');
             document.getElementById('statsSection').classList.remove('hidden');
             document.getElementById('historySection').classList.remove('hidden');
             document.getElementById('exportSection').classList.remove('hidden');
-
-            // 默认只勾选个位数计分
-            document.getElementById('unitScoreOption').checked = true;
-            document.getElementById('tenScoreOption').checked = false;
-            document.getElementById('hundredScoreOption').checked = false;
-
-            renderScoreInputs();
+            // 渲染胜利者选择按钮
+            renderWinnerSelection();
+            // 更新实时排名
             updateStats();
-
-            // 添加事件监听器
-            document.getElementById('unitScoreOption').addEventListener('change', renderScoreInputs);
-            document.getElementById('tenScoreOption').addEventListener('change', renderScoreInputs);
-            document.getElementById('hundredScoreOption').addEventListener('change', renderScoreInputs);
-
-            // 滚动到页面顶部
-            window.scrollTo(0, 0);
         }
-
+    
+        // 切换分数选项（个位、十位、百位）
+        function toggleScoreOption(option) {
+            activeScoreOptions[option] = !activeScoreOptions[option];
+            // 更新按钮样式
+            document.getElementById(`unitScoreOption`).classList.toggle('selected', activeScoreOptions.unit);
+            document.getElementById(`tenScoreOption`).classList.toggle('selected', activeScoreOptions.ten);
+            document.getElementById(`hundredScoreOption`).classList.toggle('selected', activeScoreOptions.hundred);
+            // 重新渲染失败者分数输入
+            renderScoreInputs();
+        }
+    
+        // 渲染失败者分数输入
         function renderScoreInputs() {
-            const container = document.getElementById('playerInputs');
-            const unitScoreOption = document.getElementById('unitScoreOption').checked;
-            const tenScoreOption = document.getElementById('tenScoreOption').checked;
-            const hundredScoreOption = document.getElementById('hundredScoreOption').checked;
-
-            const sortedPlayers = currentWinner ? [currentWinner, ...players.filter(p => p !== currentWinner)] : players;
-            container.innerHTML = sortedPlayers.map(player => `
+            const container = document.getElementById('loserInputs');
+            // 如果没有选择胜利者，则清空失败者输入区域
+            if (!currentWinner) {
+                container.innerHTML = '';
+                return;
+            }
+            // 根据当前激活的分数选项，渲染失败者的分数输入
+            container.innerHTML = players.filter(p => p !== currentWinner).map(player => `
                 <div class="player-row">
-                    <button class="win-button ${currentWinner === player ? 'selected' : ''}" 
-                            onclick="selectWinner('${player}')">
-                        <span style="font-weight:bold">🏆 胜利者</span>
-                        <span style="font-weight: ${currentWinner === player ? 'bold' : 'normal'}; color: ${currentWinner === player ? '#34c759' : '#1d1d1f'};">${player}</span>
-                        ${currentWinner === player ? '<span class="winner-icon"></span>' : ''}
-                    </button>
-                    <div class="score-inputs" ${currentWinner === player ? 'hidden' : ''}>
-                        <div style="display:flex;flex-direction:column;gap:10px;width:100%">
-                            <input type="number" id="${player}-score" value="0" min="0" 
-                                ${currentWinner === player ? 'disabled' : ''}>
-                            <button class="reset-btn" 
-                                    onclick="resetPlayerScore('${player}')" 
-                                    ${currentWinner === player ? 'disabled' : ''}>
-                                清零
-                            </button>
-                            <div class="score-buttons">
-                                ${unitScoreOption ? SCORE_BUTTONS.slice(0, 10).map(btn => `
-                                    <button class="${btn.class}" onclick="adjustScore('${player}', ${btn.value})" 
-                                        ${currentWinner === player ? 'disabled' : ''}>
-                                        +${btn.value}
-                                    </button>
-                                `).join('') : ''}
-                            </div>
-                            <div class="score-buttons">
-                                ${tenScoreOption ? SCORE_BUTTONS.slice(10, 19).map(btn => `
-                                    <button class="${btn.class}" onclick="adjustScore('${player}', ${btn.value})" 
-                                        ${currentWinner === player ? 'disabled' : ''}>
-                                        +${btn.value}
-                                    </button>
-                                `).join('') : ''}
-                            </div>
-                            <div class="score-buttons">
-                                ${hundredScoreOption ? SCORE_BUTTONS.slice(19).map(btn => `
-                                    <button class="${btn.class}" onclick="adjustScore('${player}', ${btn.value})" 
-                                        ${currentWinner === player ? 'disabled' : ''}>
-                                        +${btn.value}
-                                    </button>
-                                `).join('') : ''}
-                            </div>
+                    <div style="display:flex;flex-direction:column;gap:10px;width:100%">
+                        <label>${player} 的扣分:</label>
+                        <div style="display:flex;align-items:center;">
+                            <button class="score-adjust-btn" onclick="adjustScore('${player}', -1)">减1分</button>
+                            <div class="score-display" id="${player}-score">0</div>
+                            <button class="score-adjust-btn" onclick="adjustScore('${player}', 1)">加1分</button>
+                        </div>
+                        <button class="reset-btn" onclick="resetPlayerScore('${player}')">清零</button>
+                        <div class="score-buttons">
+                            ${activeScoreOptions.unit ? SCORE_BUTTONS.slice(0, 10).map(btn => `<button class="${btn.class}" onclick="adjustScore('${player}', ${btn.value})">+${btn.value}</button>`).join('') : ''}
+                        </div>
+                        <div class="score-buttons">
+                            ${activeScoreOptions.ten ? SCORE_BUTTONS.slice(10, 19).map(btn => `<button class="${btn.class}" onclick="adjustScore('${player}', ${btn.value})">+${btn.value}</button>`).join('') : ''}
+                        </div>
+                        <div class="score-buttons">
+                            ${activeScoreOptions.hundred ? SCORE_BUTTONS.slice(19).map(btn => `<button class="${btn.class}" onclick="adjustScore('${player}', ${btn.value})">+${btn.value}</button>`).join('') : ''}
                         </div>
                     </div>
                 </div>
             `).join('');
+            // 更新总损失分数
+            updateTotalLostScore();
         }
-
+    
+        // 渲染胜利者选择按钮
+        function renderWinnerSelection() {
+            const container = document.getElementById('winnerButtons');
+            const playerCount = players.length;
+            container.dataset.players = playerCount; // 将玩家数量存储在data-players属性中
+    
+            let columns = 'repeat(4, minmax(120px, 1fr))'; // 默认4列 (桌面端)
+    
+            // 动态计算列数 (移动端)
+            if (window.innerWidth <= 768) {
+                if (playerCount === 3) {
+                    columns = 'repeat(3, 1fr)';  // 3名玩家, 3列
+                } else if (playerCount === 4) {
+                    columns = 'repeat(4, 1fr)';  // 4名玩家, 4列
+                } else {
+                    columns = 'repeat(auto-fit, minmax(120px, 1fr))'; // 5-8名玩家, 使用auto-fit
+                }
+            }
+            container.style.gridTemplateColumns = columns;
+    
+            container.innerHTML = players.map(player => `
+                <button class="win-button ${currentWinner === player ? 'selected' : ''}" onclick="selectWinner('${player}')">
+                    <span style="font-weight:bold">🏆</span>
+                    <span style="font-weight:${currentWinner === player ? 'bold' : 'normal'};color:${currentWinner === player ? '#34c759' : '#1d1d1f'}">${player}</span>
+                    ${currentWinner === player ? '<span class="winner-icon"></span>' : ''}
+                </button>
+            `).join('');
+            // 更新总损失分数
+            updateTotalLostScore();
+        }
+    
+        // 选择胜利者
         function selectWinner(player) {
-            currentWinner = player;
-            document.getElementById('confirmScoreBtn').disabled = false;
-            document.getElementById('confirmScoreBtn').textContent = '确认得分';
+            // 如果点击的是当前已选中的胜利者，则取消选择，否则选中新的胜利者
+            currentWinner = currentWinner === player ? null : player;
+            // 切换失败者输入区域的显示/隐藏
+            document.getElementById('loserInputSection').classList.toggle('hidden', currentWinner === null);
+            // 禁用/启用确认得分按钮
+            document.getElementById('confirmScoreBtn').disabled = currentWinner === null;
+            // 更新确认得分按钮的文本
+            document.getElementById('confirmScoreBtn').textContent = currentWinner ? '确认得分' : '请先选择胜利者';
+            // 更新提示信息的显示/隐藏
+            document.getElementById('winnerWarningMessage').style.display = currentWinner ? 'none' : 'block';
             document.getElementById('warningMessage').style.display = 'none';
+            // 重新渲染胜利者选择按钮和失败者分数输入
+            renderWinnerSelection();
             renderScoreInputs();
+            // 更新总损失分数
+            updateTotalLostScore();
         }
-
+    
+        // 调整分数（加/减）
         function adjustScore(player, amount) {
-            if (player === currentWinner) return;
             const input = document.getElementById(`${player}-score`);
-            input.value = Math.max(0, parseInt(input.value) + amount);
+            if (input) {
+                // 更新分数显示，确保不小于0
+                input.innerText = Math.max(0, parseInt(input.innerText) + amount);
+                // 更新总损失分数
+                updateTotalLostScore();
+            }
         }
-
+    
+        // 重置玩家分数
         function resetPlayerScore(player) {
-            document.getElementById(`${player}-score`).value = 0;
+            const scoreDisplay = document.getElementById(`${player}-score`);
+            if (scoreDisplay) {
+                scoreDisplay.innerText = '0';
+            }
+            // 更新总损失分数
+            updateTotalLostScore();
         }
-
+    
+        // 计算得分
         function calculateScore() {
+            // 如果没有选择胜利者，则显示提示信息并返回
             if (!currentWinner) {
-                document.getElementById('warningMessage').style.display = 'block';
+                document.getElementById('winnerWarningMessage').style.display = 'block';
                 document.getElementById('confirmScoreBtn').textContent = '请先选择胜利者';
                 document.getElementById('confirmScoreBtn').disabled = true;
                 return;
             }
-
-            const loseDetails = {};
-            let totalLost = 0;
-            
+    
+            const loseDetails = {}; // 失败者详情
+            let totalLost = 0; // 总损失分数
+    
+            // 遍历玩家，计算失败者的扣分
             players.forEach(player => {
                 if (player !== currentWinner) {
-                    const score = parseInt(document.getElementById(`${player}-score`).value) || 0;
+                    const scoreElement = document.getElementById(`${player}-score`);
+                    const score = scoreElement ? parseInt(scoreElement.innerText) : 0;
                     loseDetails[player] = score;
                     totalLost += score;
                 }
             });
-
+    
+            // 创建本回合的快照
             const snapshot = {
                 round: historyData.length + 1,
+                // 回合数
                 winner: currentWinner,
-                gained: totalLost,
-                details: loseDetails,
-                scores: {...totalScores}
-            };
-            historyData.push(snapshot);
+            // 胜利者
+            gained: totalLost,
+            // 胜利者获得的分数
+            details: loseDetails,
+            // 失败者详情
+            scores: { ...totalScores } // 当前所有玩家的总分
+        };
+        // 将本回合快照添加到历史记录
+        historyData.push(snapshot);
 
-            totalScores[currentWinner] += totalLost;
-            players.forEach(p => {
-                if(p !== currentWinner) totalScores[p] -= loseDetails[p];
-            });
+        // 更新总分
+        totalScores[currentWinner] += totalLost;
+        players.forEach(p => {
+            if (p !== currentWinner) totalScores[p] -= loseDetails[p];
+        });
 
-            updateHistory();
-            updateStats();
-            showRoundResult(totalLost);
-            resetRound();
-        }
+        // 更新历史记录表格
+        updateHistory();
+        // 更新实时排名
+        updateStats();
+        // 显示本局结果
+        showRoundResult(totalLost);
+        // 重置当前回合
+        resetRound();
+        // 更新确认得分按钮的文本和状态
+        document.getElementById('confirmScoreBtn').textContent = '请选择胜利者';
+        document.getElementById('confirmScoreBtn').disabled = true;
+    }
 
-        function updateStats() {
-            const sorted = [...players].sort((a, b) => totalScores[b] - totalScores[a]);
-            document.getElementById('stats').innerHTML = sorted.map((player, index) => `
-                <div class="player-rank ${index === 0 ? 'rank-1' : ''} ${index === 1 ? 'rank-2' : ''} ${index === 2 ? 'rank-3' : ''}">
-                    <span class="rank-medal">
-                        ${index === 0 ? '🏅' : ''}
-                        ${index === 1 ? '🥈' : ''}
-                        ${index === 2 ? '🥉' : ''}
-                    </span>
-                    <div style="flex:1">
-                        <div style="font-size:18px;font-weight:bold">${player}</div>
-                        <div style="color:#666">当前分数： 
-                            <span class="${totalScores[player] >= 0 ? 'positive-score' : 'negative-score'}">
-                                ${totalScores[player]}
-                            </span>
-                        </div>
-                    </div>
-                    <div class="rank-text">
-                        ${index === 0 ? '第一名' : ''}
-                        ${index === 1 ? '第二名' : ''}
-                        ${index === 2 ? '第三名' : ''}
+    // 更新实时排名
+    function updateStats() {
+        const sorted = [...players].sort((a, b) => totalScores[b] - totalScores[a]); // 按总分降序排列
+        document.getElementById('stats').innerHTML = sorted.map((player, index) => `
+            <div class="player-rank ${index === 0 ? 'rank-1' : ''} ${index === 1 ? 'rank-2' : ''} ${index === 2 ? 'rank-3' : ''}">
+                <span class="rank-medal">
+                    ${index === 0 ? '🏅' : ''}
+                    ${index === 1 ? '🥈' : ''}
+                    ${index === 2 ? '🥉' : ''}
+                </span>
+                <div style="flex:1">
+                    <div style="font-size:18px;font-weight:bold">${player}</div>
+                    <div style="color:#666">当前分数：
+                        <span class="${totalScores[player] >= 0 ? 'positive-score' : 'negative-score'}">
+                            ${totalScores[player]}
+                        </span>
                     </div>
                 </div>
-            `).join('');
-        }
-
-        function updateHistory() {
-            const tbody = document.querySelector('.history-table tbody');
-            tbody.innerHTML = historyData.map(record => `
-                <tr>
-                    <td>${record.round}</td>
-                    <td><span class="winner-name">${record.winner}</span><span class="winner-icon"></span></td>
-                    <td class="positive-score">+${record.gained}</td>
-                    <td>${Object.entries(record.details).map(([p,s]) => `
-                        <span class="negative-score">${p}: -${s}</span>
-                    `).join(', ')}</td>
-                    <td><button class="danger-btn delete-btn" onclick="deleteRound(${record.round})">删除</button></td>
-                </tr>
-            `).join('');
-        }
-
-        function deleteRound(targetRound) {
-            if(!confirm(`确定要删除第${targetRound}回合记录吗？`)) return;
-
-            const index = historyData.findIndex(r => r.round === targetRound);
-            if(index === -1) return;
-
-            // 重置总分
-            totalScores = Object.fromEntries(players.map(p => [p, 0]));
-
-            // 重新计算总分
-            historyData.forEach((record, i) => {
-                if (i === index) return; // 跳过要删除的记录
-                totalScores[record.winner] += record.gained;
-                Object.entries(record.details).forEach(([p, s]) => totalScores[p] -= s);
-            });
-
-            // 删除记录并更新回合数
-            historyData = historyData.filter(r => r.round !== targetRound)
-                            .map((r, i) => ({...r, round: i + 1}));
-
-            updateHistory();
-            updateStats();
-        }
-
-        function showRoundResult(score) {
-            document.getElementById('roundResult').innerHTML = `
-                <div class="result-card">
-                    <h3>🎉 本局结果</h3>
-                    <p>胜利者：<span class="winner-name">${currentWinner}</span><span class="winner-icon"></span></p>
-                    <p>获得分数：<span class="positive-score">+${score}</span></p>
+                <div class="rank-text">
+                    ${index === 0 ? '第一名' : ''}
+                    ${index === 1 ? '第二名' : ''}
+                    ${index === 2 ? '第三名' : ''}
                 </div>
-            `;
-            document.getElementById('resultsSection').classList.remove('hidden');
-        }
+            </div>
+        `).join('');
+    }
 
-        function resetRound() {
-            currentWinner = null;
-            players.forEach(player => {
-                document.getElementById(`${player}-score`).value = 0;
-            });
-            document.getElementById('confirmScoreBtn').disabled = true;
-            document.getElementById('confirmScoreBtn').textContent = '请先选择胜利者';
-            document.getElementById('warningMessage').style.display = 'none';
-            renderScoreInputs();
-        }
+    // 更新历史记录表格
+    function updateHistory() {
+        const tbody = document.querySelector('.history-table tbody');
+        tbody.innerHTML = historyData.map(record => `
+            <tr>
+                <td>${record.round}</td>
+                <td><span class="winner-name">${record.winner}</span><span class="winner-icon"></span></td>
+                <td class="positive-score">+${record.gained}</td>
+                <td>${Object.entries(record.details).map(([p, s]) => `<span class="negative-score">${p}: -${s}</span>`).join(', ')}</td>
+                <td><button class="danger-btn delete-btn" onclick="deleteRound(${record.round})">删除</button></td>
+            </tr>
+        `).join('');
+    }
 
-        function resetGame() {
-            if (confirm('确定要重置所有游戏数据吗？')) {
-                window.location.reload();
+    // 删除指定回合的记录
+    function deleteRound(targetRound) {
+        if (!confirm(`确定要删除第${targetRound}回合记录吗？`)) return;
+
+        const index = historyData.findIndex(r => r.round === targetRound);
+        if (index === -1) return;
+
+        // 获取要删除的回合数据
+        const deletedRound = historyData[index];
+
+        // 从总分中恢复已删除回合的分数
+        totalScores[deletedRound.winner] -= deletedRound.gained;
+        Object.entries(deletedRound.details).forEach(([player, score]) => {
+            totalScores[player] += score; // 加回扣除的分数
+        });
+
+        // 删除记录并重新计算回合数
+        historyData = historyData.filter(r => r.round !== targetRound)
+            .map((r, i) => ({ ...r, round: i + 1 }));
+
+        // 更新历史记录和实时排名
+        updateHistory();
+        updateStats();
+    }
+
+    // 显示本局结果
+    function showRoundResult(score) {
+        document.getElementById('roundResult').innerHTML = `
+            <div class="result-card">
+                <h3>🎉 本局结果</h3>
+                <p>胜利者：<span class="winner-name">${currentWinner}</span><span class="winner-icon"></span></p>
+                <p>获得分数：<span class="positive-score">+${score}</span></p>
+            </div>
+        `;
+        document.getElementById('resultsSection').classList.remove('hidden');
+    }
+
+    // 重置当前回合
+    function resetRound() {
+        currentWinner = null; // 重置当前胜利者
+        // 重置失败者分数显示
+        players.forEach(player => {
+            const scoreDisplay = document.getElementById(`${player}-score`);
+            if (scoreDisplay) {
+                scoreDisplay.innerText = '0';
             }
-        }
+        });
+        // 禁用确认得分按钮
+        document.getElementById('confirmScoreBtn').disabled = true;
+        // 更新确认得分按钮文本
+        document.getElementById('confirmScoreBtn').textContent = '请先选择胜利者';
+        // 显示胜利者选择提示
+        document.getElementById('winnerWarningMessage').style.display = 'block';
+        // 隐藏失败者输入区域
+        document.getElementById('loserInputSection').classList.add('hidden');
+        // 显示胜利者选择区域
+        document.getElementById('winnerSelectionSection').classList.remove('hidden');
+        // 隐藏其他提示信息
+        document.getElementById('warningMessage').style.display = 'none';
+        // 清空胜利者得分显示
+        document.getElementById('winnerDisplay').innerHTML = '';
+        // 重新渲染胜利者选择按钮
+        renderWinnerSelection();
+    }
 
-        function exportData() {
-            const data = [
-                '=== 游戏记录 ===',
-                `玩家列表：${players.join(', ')}`,
-                `总回合数：${historyData.length}`,
-                '',
-                '=== 历史记录 ===',
-            ];
-            historyData.forEach(r => {
-                data.push(`${r.round}\t${r.winner}\t+${r.gained}\t${Object.entries(r.details).map(([p,s]) => `${p}:-${s}`).join(',')}`);
-            });
-            data.push('');
-            data.push('=== 最终得分 ===');
-            players.forEach(p => {
-                data.push(`${p}: ${totalScores[p]}`);
-            });
-
-            const blob = new Blob([data.join('\n')], {type: 'text/plain'});
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `桌游记录_${new Date().toISOString().slice(0,10)}.txt`;
-            a.click();
+    // 重置游戏
+    function resetGame() {
+        if (confirm('确定要重置所有游戏数据吗？')) {
+            window.location.reload(); // 刷新页面
         }
-    </script>
+    }
+
+    // 导出游戏数据
+    function exportData() {
+        const data = [
+            '=== 游戏记录 ===',
+            `玩家列表：${players.join(', ')}`,
+            `总回合数：${historyData.length}`,
+            '',
+            '=== 历史记录 ===',
+        ];
+        historyData.forEach(r => {
+            data.push(`${r.round} ${r.winner} +${r.gained} ${Object.entries(r.details).map(([p, s]) => `${p}:-${s}`).join(',')}`);
+        });
+        data.push('');
+        data.push('=== 最终得分 ===');
+        players.forEach(p => {
+            data.push(`${p}: ${totalScores[p]}`);
+        });
+
+        const blob = new Blob([data.join('\n')], {
+            type: 'text/plain'
+        });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `桌游记录_${new Date().toISOString().slice(0, 10)}.txt`;
+        a.click();
+    }
+
+    // 更新总损失分数（用于显示在胜利者旁边）
+    function updateTotalLostScore() {
+        let totalLost = 0;
+        if (currentWinner) {
+            players.forEach(player => {
+                if (player !== currentWinner) {
+                    const inputElement = document.getElementById(`${player}-score`);
+                    if (inputElement) {
+                        const score = parseInt(inputElement.innerText) || 0;
+                        totalLost += score;
+                    }
+                }
+            });
+        }
+        const winnerDisplay = document.getElementById('winnerDisplay');
+        if (currentWinner) {
+            winnerDisplay.innerHTML = `<p><span class="winner-name">${currentWinner}</span> 将获得 <span id="total-lost-score">${totalLost}</span> 分</p>`;
+        } else {
+            winnerDisplay.innerHTML = ''; // 没有选择胜利者时，清空显示
+        }
+    }
+
+    // 添加一个事件监听器，在窗口大小改变时重新渲染胜利者选择, 确保在调整了页面后, 布局结构正常.
+    window.addEventListener('resize', renderWinnerSelection);
+</script>
 </body>
+
 </html>
+<!-- CHUNK 3 END - 代码结束 -->
