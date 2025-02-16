@@ -6,169 +6,176 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>桌游计分系统</title>
     <style>
-        /* 全局样式 - 参照 Apple 风格调整 */
+        /* 全局样式 */
         body {
             -webkit-text-size-adjust: 100%;
-            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif; /* 更接近 Apple 风格的字体栈 */
+            /* 防止iOS Safari自动调整字体大小 */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9; /* 浅灰色背景，更柔和 */
-            color: #333; /* 更柔和的深灰色文字 */
-            -webkit-font-smoothing: antialiased; /* 字体抗锯齿，使文字更清晰 */
-            -moz-osx-font-smoothing: grayscale;
+            background-color: #f5f5f7;
+            /* 浅灰色背景 */
+            color: #1d1d1f;
+            /* 深灰色文字 */
         }
 
         /* 主容器样式 */
         .container {
-            max-width: 960px; /* 稍微增大最大宽度，适应更宽屏幕 */
-            margin: 40px auto; /* 增加顶部和底部外边距，页面更舒展 */
-            padding: 30px; /* 增加内边距 */
+            max-width: 800px;
+            /* 最大宽度 */
+            margin: 0 auto;
+            /* 水平居中 */
+            padding: 20px;
             background-color: #fff;
-            border-radius: 16px; /* 更大的圆角 */
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); /* 更柔和的阴影 */
+            /* 白色背景 */
+            border-radius: 12px;
+            /* 圆角 */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            /* 阴影 */
         }
 
         /* 标题样式 */
         h1,
         h2 {
             text-align: center;
-            color: #222; /* 标题颜色更深一些 */
-            margin-bottom: 35px; /* 稍微增加底部外边距 */
-            font-size: 32px; /* 稍微增大标题字号 */
+            color: #1d1d1f;
+            margin-bottom: 30px;
+            font-size: 28px;
             font-weight: 600;
-            letter-spacing: -0.5px; /* 微调字间距，更精致 */
         }
 
         h2 {
-            font-size: 24px; /* 增大二级标题字号 */
-            margin-bottom: 25px;
-            font-weight: 500; /* 稍微调细二级标题字重 */
+            font-size: 22px;
+            margin-bottom: 20px;
         }
 
         /* 输入框组样式 */
         .input-group {
-            margin-bottom: 25px; /* 稍微增加间距 */
+            margin-bottom: 20px;
         }
 
         .input-group label {
             display: block;
-            font-size: 17px; /* 稍微增大标签字号 */
+            font-size: 16px;
             font-weight: 500;
-            margin-bottom: 10px; /* 稍微增加底部外边距 */
-            color: #444; /* 标签颜色稍微深一些 */
+            margin-bottom: 8px;
+            color: #1d1d1f;
         }
 
         .input-group select,
         .input-group input {
             width: 100%;
-            padding: 12px 15px; /* 增加内边距 */
-            font-size: 17px; /* 增大输入框字号 */
-            border: 1px solid #ddd; /* 更浅的边框颜色 */
-            border-radius: 10px; /* 增大圆角 */
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #d1d1d6;
+            border-radius: 8px;
             background-color: #fff;
-            color: #333;
-            transition: border-color 0.2s, box-shadow 0.2s; /* 添加 box-shadow 过渡 */
+            color: #1d1d1f;
+            transition: border-color 0.2s;
         }
 
         .input-group select:focus,
         .input-group input:focus {
-            border-color: #007bff; /* 聚焦时边框颜色 */
+            border-color: #007aff;
+            /* 聚焦时边框颜色 */
             outline: none;
-            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2); /* 聚焦时添加更明显的阴影 */
         }
 
         /* 按钮组样式 */
         .button-group {
             display: flex;
-            gap: 15px; /* 稍微增加按钮间距 */
-            margin-top: 30px; /* 稍微增加顶部外边距 */
+            gap: 10px;
+            margin-top: 25px;
             flex-wrap: wrap;
+            /* 自动换行 */
             justify-content: center;
+            /* 水平居中 */
         }
 
         .button-group button {
-            padding: 14px 28px; /* 稍微增大按钮内边距 */
-            font-size: 17px; /* 增大按钮字号 */
+            padding: 12px 24px;
+            font-size: 16px;
             font-weight: 500;
             border: none;
-            border-radius: 10px; /* 增大圆角 */
+            border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s; /* 添加 box-shadow 过渡 */
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* 默认添加轻微阴影 */
-        }
-
-        .button-group button:hover {
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* hover 时阴影更明显 */
+            transition: background-color 0.2s, transform 0.2s;
         }
 
         .button-group button:active {
             transform: scale(0.98);
+            /* 点击时缩小 */
         }
 
         /* 主要按钮样式 */
         .primary-btn {
-            background-color: #007bff;
+            background-color: #007aff;
+            /* 蓝色 */
             color: #fff;
         }
 
         .primary-btn:hover {
-            background-color: #0069d9; /* 稍微调整 hover 颜色 */
+            background-color: #0063cc;
+            /* 深蓝色 */
         }
 
         /* 危险按钮样式 */
         .danger-btn {
-            background-color: #dc3545;
+            background-color: #ff3b30;
+            /* 红色 */
             color: #fff;
         }
 
         .danger-btn:hover {
-            background-color: #c82333; /* 稍微调整 hover 颜色 */
+            background-color: #cc2e25;
+            /* 深红色 */
         }
 
         /* 成功按钮样式 */
         .success-btn {
-            background-color: #28a745;
+            background-color: #34c759;
+            /* 绿色 */
             color: #fff;
         }
 
         .success-btn:hover {
-            background-color: #1e7e34; /* 稍微调整 hover 颜色 */
+            background-color: #2aa44f;
+            /* 深绿色 */
         }
 
         /* 玩家行样式 */
         .player-row {
             display: flex;
             align-items: center;
-            gap: 20px; /* 稍微增大间距 */
-            margin-bottom: 20px; /* 稍微增大底部外边距 */
-            padding: 20px; /* 增加内边距 */
-            background-color: #fff; /* 玩家行背景白色 */
-            border-radius: 16px; /* 更大圆角 */
-            box-shadow: 0 3px 9px rgba(0, 0, 0, 0.05); /* 添加轻微阴影 */
-            border: 1px solid #eee; /* 增加浅色边框 */
+            gap: 15px;
+            margin-bottom: 15px;
+            padding: 16px;
+            background-color: #f5f5f7;
+            border-radius: 12px;
             position: relative;
         }
 
         /* 胜利者按钮样式 */
         .win-button {
-            padding: 14px; /* 增加内边距 */
-            font-size: 17px; /* 增大字号 */
+            padding: 12px;
+            font-size: 16px;
             font-weight: 500;
-            border: 2px solid #ddd; /* 更浅的边框颜色 */
-            border-radius: 16px; /* 更大圆角 */
+            border: 2px solid #d1d1d6;
+            border-radius: 12px;
             background-color: #fff;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
+            position: relative;
         }
 
         .win-button.selected {
-            border-color: #28a745; /* 选中时边框颜色 */
-            background: #f0fff3; /* 选中时浅绿色背景 */
-            transform: scale(1.03); /* 选中时稍微放大 */
-            box-shadow: 0 4px 12px rgba(40, 167, 69, 0.2); /* 选中时阴影更明显 */
+            border-color: #34c759;
+            background: linear-gradient(145deg, #e6ffe6, #c3e6cb);
+            transform: scale(1.02);
+            box-shadow: 0 2px 8px rgba(52, 199, 89, 0.3);
         }
 
         .win-button.selected::after {
@@ -177,29 +184,29 @@
             top: -10px;
             right: -10px;
             background: #ffd700;
-            color: #333;
-            padding: 5px 10px; /* 增加内边距 */
-            border-radius: 16px; /* 更大圆角 */
-            font-size: 13px; /* 稍微减小字号 */
+            color: #1d1d1f;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
             transform: rotate(10deg);
             animation: bounce 0.8s ease;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* 为小标签添加阴影 */
         }
 
         /* 胜利者图标 */
         .winner-icon {
             display: inline-block;
-            width: 22px; /* 稍微增大图标大小 */
-            height: 22px;
+            width: 20px;
+            height: 20px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffd700"><path d="M12 1.5l3.09 6.26L22 8.27l-5 4.87 1.18 6.88L12 16.5l-6.18 3.52L7 13.14 2 8.27l6.91-1.51L12 1.5z"/></svg>');
             background-size: contain;
-            margin-left: 10px; /* 稍微增大左外边距 */
+            margin-left: 8px;
         }
 
         /* 分数输入区域样式 */
         .score-inputs {
             flex: 2;
             display: flex;
-            gap: 15px; /* 稍微增大间距 */
+            gap: 10px;
             align-items: center;
         }
 
@@ -208,46 +215,39 @@
         }
 
         .score-inputs input {
-            width: 120px; /* 稍微增大宽度 */
-            padding: 18px 15px; /* 增加垂直内边距 */
-            font-size: 28px; /* 增大分数输入框字号 */
+            width: 100px;
+            padding: 15px;
+            font-size: 24px;
             font-weight: bold;
-            border: 2px solid #ddd; /* 更浅的边框颜色 */
-            border-radius: 16px; /* 更大圆角 */
+            border: 2px solid #d1d1d6;
+            border-radius: 12px;
             text-align: center;
-            background-color: #f0f0f0; /* 浅灰色背景 */
-            color: #333;
-            transition: border-color 0.2s, box-shadow 0.2s; /* 添加 box-shadow 过渡 */
+            background-color: #fff;
+            color: #1d1d1f;
+            transition: border-color 0.2s;
         }
 
         .score-inputs input:focus {
-            border-color: #007bff;
+            border-color: #007aff;
             outline: none;
-            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2); /* 聚焦时添加更明显的阴影 */
         }
 
         /* 分数按钮组样式 */
         .score-buttons {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            margin-top: 10px; /* 增加顶部外边距 */
+            /* 4列 */
+            gap: 8px;
         }
 
         .score-buttons button {
-            padding: 12px;
+            padding: 10px;
             font-size: 16px;
             font-weight: 500;
             border: none;
-            border-radius: 10px; /* 增大圆角 */
+            border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s; /* 添加 box-shadow 过渡 */
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* 默认添加轻微阴影 */
-            color: #fff; /* 统一文字颜色为白色 */
-        }
-
-        .score-buttons button:hover {
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* hover 时阴影更明显 */
+            transition: background-color 0.2s, transform 0.2s;
         }
 
         .score-buttons button:active {
@@ -256,141 +256,141 @@
 
         /* 个位数按钮样式 */
         .score-buttons button.unit {
-            background-color: #007bff; /* 蓝色 */
+            background-color: #2196f3;
+            /* 蓝色 */
+            color: #fff;
         }
 
         /* 十位数按钮样式 */
         .score-buttons button.tens {
-            background-color: #667eea; /* 紫色 */
+            background-color: #1dd8a0;
+            /* 紫色 */
+            color: #fff;
         }
 
         /* 百位数按钮样式 */
         .score-buttons button.hundreds {
-            background-color: #ff7675; /* 红色 */
+            background-color: #f02e28;
+            /* 绿色 */
+            color: #fff;
         }
-
-        /* 小数按钮样式 */
-        .score-buttons button.decimal {
-            background-color: #a29bfe; /* 浅紫色 */
-        }
-
-        /* 倍率和清除倍率按钮样式 (使用 .primary-btn 和 .reset-btn 样式) */
 
         /* 重置按钮样式 */
         .reset-btn {
-            background-color: #ff9f43; /* 橙色 */
+            background-color: #ff9500;
+            /* 橙色 */
             color: #fff;
-            padding: 12px 24px; /* 统一按钮内边距 */
-            font-size: 16px; /* 统一按钮字号 */
+            padding: 10px;
+            /* 与 .score-buttons button 统一 */
+            font-size: 16px;
             font-weight: 500;
             border: none;
-            border-radius: 10px; /* 统一圆角 */
+            border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s; /* 添加 box-shadow 过渡 */
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* 默认添加轻微阴影 */
-        }
-
-        .reset-btn:hover {
-            background-color: #fa8e22; /* 稍微调整 hover 颜色 */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* hover 时阴影更明显 */
+            transition: background-color 0.2s, transform 0.2s;
         }
 
         .reset-btn:active {
             transform: scale(0.98);
         }
 
+        .reset-btn:hover {
+            background-color: #cc7a00;
+            /* 深橙色 */
+        }
+
         /* 历史记录表格样式 */
         .history-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 30px; /* 稍微增加顶部外边距 */
+            margin-top: 20px;
             background-color: #fff;
-            border-radius: 16px; /* 更大圆角 */
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* 稍微调整阴影 */
-            border: 1px solid #eee; /* 添加浅色边框 */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .history-table th,
         .history-table td {
-            padding: 14px 12px; /* 增加垂直内边距 */
-            border: 1px solid #eee; /* 更浅的边框颜色 */
+            padding: 12px;
+            border: 1px solid #e5e5ea;
             text-align: center;
-            font-size: 16px; /* 增大表格字号 */
         }
 
         .history-table th {
-            background-color: #f5f5f5; /* 表头背景颜色 */
+            background-color: #f5f5f7;
             font-weight: 600;
-            color: #333;
+            color: #1d1d1f;
         }
 
         /* 负分样式 */
         .negative-score {
-            color: #ff4d4d; /* 红色 */
+            color: #ff3b30;
+            /* 红色 */
             font-weight: bold;
         }
 
         /* 正分样式 */
         .positive-score {
-            color: #52c41a; /* 绿色 */
+            color: #34c759;
+            /* 绿色 */
             font-weight: bold;
         }
 
         /* 玩家排名样式 */
         .player-rank {
-            padding: 20px; /* 增加内边距 */
-            margin: 15px 0; /* 稍微增大上下外边距 */
-            border-radius: 16px; /* 更大圆角 */
+            padding: 16px;
+            margin: 10px 0;
+            border-radius: 12px;
             background: #fff;
-            box-shadow: 0 3px 9px rgba(0, 0, 0, 0.05); /* 轻微阴影 */
-            border: 1px solid #eee; /* 增加浅色边框 */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
-            transition: transform 0.2s, box-shadow 0.2s; /* 添加 box-shadow 过渡 */
+            transition: transform 0.2s;
         }
 
         .player-rank:hover {
             transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* hover 时阴影更明显 */
         }
 
         /* 前三名特殊样式 */
         .rank-1 {
-            background: #fffaf0; /* 米白色背景 */
-            border-left: 5px solid #ffc107; /* 金色 */
+            background: linear-gradient(145deg, #fff3cd, #ffe69c);
+            border-left: 5px solid #ffd700;
+            /* 金色 */
         }
 
         .rank-2 {
-            background: #f8f8ff; /* 银色 */
+            background: linear-gradient(145deg, #e9ecef, #dae0e5);
             border-left: 5px solid #c0c0c0;
+            /* 银色 */
         }
 
         .rank-3 {
-            background: #fff0f5; /* 淡紫色背景 */
-            border-left: 5px solid #cd7f32; /* 铜色 */
+            background: linear-gradient(145deg, #f8e5d6, #e7c9b1);
+            border-left: 5px solid #cd7f32;
+            /* 铜色 */
         }
 
         /* 排名奖牌样式 */
         .rank-medal {
-            font-size: 22px; /* 稍微增大奖牌图标字号 */
-            margin-right: 18px; /* 稍微增大右外边距 */
+            font-size: 20px;
+            margin-right: 15px;
             width: 40px;
             text-align: center;
-            opacity: 0.8; /* 稍微降低透明度，更柔和 */
         }
 
         /* 排名文本样式 */
         .rank-text {
-            font-size: 17px; /* 增大排名文本字号 */
+            font-size: 16px;
             font-weight: 600;
-            color: #444; /* 排名文本颜色稍微深一些 */
+            color: #1d1d1f;
             margin-left: auto;
         }
 
         /* 分数选项样式（个位、十位、百位） */
         .score-options {
-            margin-bottom: 25px; /* 稍微增加底部外边距 */
+            margin-bottom: 20px;
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
@@ -398,27 +398,22 @@
         }
 
         .score-options button {
-            padding: 12px 20px; /* 调整按钮内边距 */
+            padding: 10px 15px;
             font-size: 16px;
             font-weight: 500;
-            border: 1px solid #ddd; /* 浅色边框 */
-            border-radius: 10px; /* 增大圆角 */
+            border: none;
+            border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.2s, transform 0.2s, color 0.2s, border-color 0.2s; /* 添加边框颜色过渡 */
-            background-color: #f8f8f8; /* 浅灰色背景 */
-            color: #555; /* 稍微深一些的文字颜色 */
+            transition: background-color 0.2s, transform 0.2s, color 0.2s;
+            background-color: #f5f5f7;
+            color: #1d1d1f;
+            border: 1px solid #d1d1d6;
         }
-
-        .score-options button:hover {
-            background-color: #eee; /* hover 时背景更浅 */
-            border-color: #ccc; /* hover 时边框颜色稍微深一些 */
-        }
-
 
         .score-options button.selected {
-            background-color: #007bff; /* 选中时蓝色背景 */
+            background-color: #007aff;
+            /* 选中时为蓝色 */
             color: #fff;
-            border-color: #007bff; /* 选中时蓝色边框 */
         }
 
         /* 响应式样式（小屏幕） */
@@ -430,44 +425,22 @@
 
             .score-inputs {
                 flex-direction: column;
-                gap: 10px; /* 减小间距 */
             }
 
             .score-buttons {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 8px; /* 减小按钮间距 */
+                /* 2列 */
             }
 
             .reset-btn {
                 width: 100%;
-                margin-top: 10px; /* 增加顶部外边距 */
+                margin-top: 8px;
             }
 
             .win-button.selected::after {
                 top: -5px;
                 right: -5px;
-                font-size: 11px; /* 减小提示标签字号 */
-                padding: 3px 6px; /* 减小提示标签内边距 */
-            }
-
-            h1 {
-                font-size: 28px; /* 小屏幕标题字号 */
-                margin-bottom: 25px; /* 减小底部外边距 */
-            }
-
-            h2 {
-                font-size: 20px; /* 小屏幕二级标题字号 */
-                margin-bottom: 18px; /* 减小底部外边距 */
-            }
-
-            .container {
-                padding: 15px; /* 减小容器内边距 */
-                margin: 20px auto; /* 减小容器外边距 */
-                border-radius: 12px; /* 减小圆角 */
-            }
-
-            .footer {
-                margin-top: 20px; /* 减小页脚顶部外边距 */
+                font-size: 10px;
             }
         }
 
@@ -492,23 +465,21 @@
         /* 页脚样式 */
         .footer {
             text-align: center;
-            margin-top: 40px; /* 增加顶部外边距 */
-            font-size: 15px; /* 稍微增大字号 */
-            color: #777; /* 更浅的文字颜色 */
+            margin-top: 30px;
+            font-size: 14px;
+            color: #666;
             display: flex;
             flex-direction: column;
-            gap: 8px; /* 稍微增大行间距 */
+            gap: 5px;
         }
 
         .footer a {
-            color: #007bff;
+            color: #007aff;
             text-decoration: none;
-            transition: color 0.2s; /* 添加颜色过渡 */
         }
 
         .footer a:hover {
             text-decoration: underline;
-            color: #0056b3; /* hover 时颜色稍微加深 */
         }
 
         .footer p {
@@ -518,75 +489,71 @@
         /* 胜利者选择区域和失败者输入区域样式 */
         #winnerSelectionSection,
         #loserInputSection {
-            background-color: #f9f9f9; /* 与 body 背景色一致 */
-            border-radius: 16px; /* 更大圆角 */
-            padding: 25px; /* 增加内边距 */
-            margin-bottom: 25px; /* 增加底部外边距 */
+            background-color: #f5f5f7;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
         }
 
         /* 胜利者按钮容器样式 */
         #winnerButtons {
             display: grid;
-            grid-template-columns: repeat(4, minmax(140px, 1fr)); /* 稍微增大按钮最小宽度 */
-            gap: 15px; /* 稍微增大按钮间距 */
+            grid-template-columns: repeat(4, minmax(120px, 1fr));
+            /* 默认4列 */
+            gap: 10px;
             justify-content: center;
         }
 
         /* 响应式布局（小屏幕） */
         @media (max-width: 768px) {
             #winnerButtons {
-                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                /* 自动调整 */
             }
         }
 
         /* 失败者输入区域样式 */
         #loserInputs .player-row {
-            background-color: #f8f8f8; /* 失败者输入行背景更浅 */
-            border: 1px solid #ddd; /* 更浅的边框颜色 */
+            background-color: #fff;
+            border: 1px solid #d1d1d6;
         }
 
         /* 显示胜利者得分样式 */
         #winnerDisplay {
             text-align: center;
-            font-size: 19px; /* 增大字号 */
-            margin-bottom: 25px; /* 增加底部外边距 */
-            color: #555; /* 稍微深一些的文字颜色 */
+            font-size: 18px;
+            margin-bottom: 20px;
         }
 
         #winnerDisplay .winner-name {
             font-weight: bold;
-            color: #28a745; /* 绿色 */
+            color: #34c759;
+            /* 绿色 */
         }
 
         /* 分数调整按钮（加减分）样式 */
         .score-adjust-btn {
-            padding: 8px 12px; /* 调整内边距 */
-            font-size: 17px; /* 增大字号 */
+            padding: 5px 10px;
+            font-size: 18px;
             border: 1px solid #ccc;
-            border-radius: 8px;
+            border-radius: 5px;
             cursor: pointer;
-            background-color: #f0f0f0; /* 浅灰色背景 */
+            background-color: #fff;
         }
 
         .score-adjust-btn:hover {
-            background-color: #e0e0e0; /* hover 时背景更浅 */
+            background-color: #eee;
         }
 
         /* 分数显示样式 */
         .score-display {
-            font-size: 36px; /* 增大字号 */
-            margin: 0 20px; /* 稍微增大左右外边距 */
-            min-width: 60px; /* 稍微增大最小宽度 */
+            font-size: 32px;
+            font-weight: bold;
+            margin: 0 15px;
+            min-width: 50px;
             text-align: center;
-            color: #444; /* 稍微深一些的文字颜色 */
-        }
-
-        /* 让 #winnerSelectionSection 内部的直接子元素垂直居中 */
-        #winnerSelectionSection>* {
-            align-items: center;
         }
     </style>
-
 </head>
 
 <body>
@@ -635,26 +602,12 @@
                 <button id="hundredScoreOption" class="score-option-btn" onclick="toggleScoreOption('hundred')">
                     百位数
                 </button>
-                <!-- 新增：小数按钮 -->
-                <button id="decimalScoreOption" class="score-option-btn" onclick="toggleScoreOption('decimal')">
-                    小数
-                </button>
             </div>
 
             <!-- 胜利者选择区域 -->
             <div id="winnerSelectionSection">
                 <h2>🏆 选择本局胜利者</h2>
                 <div id="winnerButtons"></div>
-                <!--  修改：本局倍率显示和按钮组 -->
-                <div style="display: flex; align-items: center; justify-content: center; margin-top: 10px; gap: 10px;">
-                    <div style="font-size: 18px; font-weight: bold; margin-right: 5px;">
-                        本局倍率: <span id="multiplierDisplay" style="font-size: 24px; color: #007aff; font-weight: bolder;">0</span>
-                    </div>
-                    <div class="button-group" style="margin-top: 0;"> <!-- 使用 button-group 样式 -->
-                        <button class="primary-btn" id="multiplierBtn" onclick="toggleMultiplier()">翻倍</button>
-                        <button class="reset-btn" id="clearMultiplierBtn" onclick="clearMultiplier()">清除倍率</button> <!-- 新增：清除倍率按钮 -->
-                    </div>
-                </div>
                 <div class="warning-text" id="winnerWarningMessage">※ 请选择本局胜利者</div>
             </div>
 
@@ -692,7 +645,6 @@
                         <th>胜利者</th>
                         <th>获得分数</th>
                         <th>失败者扣分</th>
-                        <th>倍率</th>
                         <th>操作</th>
                     </tr>
                 </thead>
@@ -718,7 +670,7 @@
         <!-- 页脚 -->
         <div class="footer">
             <p>程序作者: <a href="https://github.com/guhaochong" target="_blank">guhaochong</a></p>
-            <p>生成日期: 2025-02-06 | 版本号: 1.16</p>
+            <p>生成日期: 2025-02-06 | 版本号: 1.13</p>
         </div>
     </div>
     <!-- CHUNK 1 END -  请将下一个代码块附加到此处 -->
@@ -737,12 +689,9 @@
             // 个位数
             ten: false,
             // 十位数
-            hundred: false, // 百位数
-            decimal: false // 新增：小数
+            hundred: false // 百位数
         };
-        // 新增：当前倍率，初始为 0
-        let currentMultiplier = 0;
-
+    
         // 分数按钮配置
         const SCORE_BUTTONS = [{
                 value: 1,
@@ -823,50 +772,9 @@
             {
                 value: 100,
                 class: 'hundreds'
-            },
-            // 新增：小数按钮
-            {
-                value: 0.1,
-                class: 'decimal'
-            },
-            {
-                value: 0.2,
-                class: 'decimal'
-            },
-            {
-                value: 0.3,
-                class: 'decimal'
-            },
-            {
-                value: 0.4,
-                class: 'decimal'
-            },
-            {
-                value: 0.5,
-                class: 'decimal'
-            },
-            {
-                value: 0.6,
-                class: 'decimal'
-            },
-            {
-                value: 0.7,
-                class: 'decimal'
-            },
-            {
-                value: 0.8,
-                class: 'decimal'
-            },
-            {
-                value: 0.9,
-                class: 'decimal'
-            },
-            {
-                value: 1.0,
-                class: 'decimal'
             }
         ];
-
+    
         // 设置玩家
         function setupPlayers() {
             const playerCount = parseInt(document.getElementById('playerCount').value);
@@ -881,7 +789,7 @@
                 </div>
             `).join('');
         }
-
+    
         // 开始游戏
         function startGame() {
             const playerCount = parseInt(document.getElementById('playerCount').value);
@@ -904,7 +812,7 @@
             // 更新实时排名
             updateStats();
         }
-
+    
         // 切换分数选项（个位、十位、百位）
         function toggleScoreOption(option) {
             activeScoreOptions[option] = !activeScoreOptions[option];
@@ -912,12 +820,10 @@
             document.getElementById(`unitScoreOption`).classList.toggle('selected', activeScoreOptions.unit);
             document.getElementById(`tenScoreOption`).classList.toggle('selected', activeScoreOptions.ten);
             document.getElementById(`hundredScoreOption`).classList.toggle('selected', activeScoreOptions.hundred);
-            // 新增：切换小数按钮的样式
-            document.getElementById(`decimalScoreOption`).classList.toggle('selected', activeScoreOptions.decimal);
             // 重新渲染失败者分数输入
             renderScoreInputs();
         }
-
+    
         // 渲染失败者分数输入
         function renderScoreInputs() {
             const container = document.getElementById('loserInputs');
@@ -944,147 +850,121 @@
                             ${activeScoreOptions.ten ? SCORE_BUTTONS.slice(10, 19).map(btn => `<button class="${btn.class}" onclick="adjustScore('${player}', ${btn.value})">+${btn.value}</button>`).join('') : ''}
                         </div>
                         <div class="score-buttons">
-                            ${activeScoreOptions.hundred ? SCORE_BUTTONS.slice(19,20).map(btn => `<button class="${btn.class}" onclick="adjustScore('${player}', ${btn.value})">+${btn.value}</button>`).join('') : ''}
-                        </div>
-
-                        <div class="score-buttons">
-                        ${activeScoreOptions.decimal ? SCORE_BUTTONS.slice(20).map(btn => `<button class="${btn.class}" onclick="adjustScore('${player}', ${btn.value})">+${btn.value}</button>`).join('') : ''}
+                            ${activeScoreOptions.hundred ? SCORE_BUTTONS.slice(19).map(btn => `<button class="${btn.class}" onclick="adjustScore('${player}', ${btn.value})">+${btn.value}</button>`).join('') : ''}
                         </div>
                     </div>
                 </div>
             `).join('');
-        // 更新总损失分数
-        updateTotalLostScore();
-    }
-
-    // 渲染胜利者选择按钮
-    function renderWinnerSelection() {
-        const container = document.getElementById('winnerButtons');
-        const playerCount = players.length;
-        container.dataset.players = playerCount; // 将玩家数量存储在data-players属性中
-
-        let columns = 'repeat(4, minmax(120px, 1fr))'; // 默认4列 (桌面端)
-
-        // 动态计算列数 (移动端)
-        if (window.innerWidth <= 768) {
-            if (playerCount === 3) {
-                columns = 'repeat(3, 1fr)'; // 3名玩家, 3列
-            } else if (playerCount === 4) {
-                columns = 'repeat(4, 1fr)'; // 4名玩家, 4列
-            } else {
-                columns = 'repeat(auto-fit, minmax(120px, 1fr))'; // 5-8名玩家, 使用auto-fit
+            // 更新总损失分数
+            updateTotalLostScore();
+        }
+    
+        // 渲染胜利者选择按钮
+        function renderWinnerSelection() {
+            const container = document.getElementById('winnerButtons');
+            const playerCount = players.length;
+            container.dataset.players = playerCount; // 将玩家数量存储在data-players属性中
+    
+            let columns = 'repeat(4, minmax(120px, 1fr))'; // 默认4列 (桌面端)
+    
+            // 动态计算列数 (移动端)
+            if (window.innerWidth <= 768) {
+                if (playerCount === 3) {
+                    columns = 'repeat(3, 1fr)';  // 3名玩家, 3列
+                } else if (playerCount === 4) {
+                    columns = 'repeat(4, 1fr)';  // 4名玩家, 4列
+                } else {
+                    columns = 'repeat(auto-fit, minmax(120px, 1fr))'; // 5-8名玩家, 使用auto-fit
+                }
+            }
+            container.style.gridTemplateColumns = columns;
+    
+            container.innerHTML = players.map(player => `
+                <button class="win-button ${currentWinner === player ? 'selected' : ''}" onclick="selectWinner('${player}')">
+                    <span style="font-weight:bold">🏆</span>
+                    <span style="font-weight:${currentWinner === player ? 'bold' : 'normal'};color:${currentWinner === player ? '#34c759' : '#1d1d1f'}">${player}</span>
+                    ${currentWinner === player ? '<span class="winner-icon"></span>' : ''}
+                </button>
+            `).join('');
+            // 更新总损失分数
+            updateTotalLostScore();
+        }
+    
+        // 选择胜利者
+        function selectWinner(player) {
+            // 如果点击的是当前已选中的胜利者，则取消选择，否则选中新的胜利者
+            currentWinner = currentWinner === player ? null : player;
+            // 切换失败者输入区域的显示/隐藏
+            document.getElementById('loserInputSection').classList.toggle('hidden', currentWinner === null);
+            // 禁用/启用确认得分按钮
+            document.getElementById('confirmScoreBtn').disabled = currentWinner === null;
+            // 更新确认得分按钮的文本
+            document.getElementById('confirmScoreBtn').textContent = currentWinner ? '确认得分' : '请先选择胜利者';
+            // 更新提示信息的显示/隐藏
+            document.getElementById('winnerWarningMessage').style.display = currentWinner ? 'none' : 'block';
+            document.getElementById('warningMessage').style.display = 'none';
+            // 重新渲染胜利者选择按钮和失败者分数输入
+            renderWinnerSelection();
+            renderScoreInputs();
+            // 更新总损失分数
+            updateTotalLostScore();
+        }
+    
+        // 调整分数（加/减）
+        function adjustScore(player, amount) {
+            const input = document.getElementById(`${player}-score`);
+            if (input) {
+                // 更新分数显示，确保不小于0
+                input.innerText = Math.max(0, parseInt(input.innerText) + amount);
+                // 更新总损失分数
+                updateTotalLostScore();
             }
         }
-        container.style.gridTemplateColumns = columns;
-
-        container.innerHTML = players.map(player => `
-            <button class="win-button ${currentWinner === player ? 'selected' : ''}" onclick="selectWinner('${player}')">
-                <span style="font-weight:bold">🏆</span>
-                <span style="font-weight:${currentWinner === player ? 'bold' : 'normal'};color:${currentWinner === player ? '#34c759' : '#1d1d1f'}">${player}</span>
-                ${currentWinner === player ? '<span class="winner-icon"></span>' : ''}
-            </button>
-        `).join('');
-        // 更新总损失分数
-        updateTotalLostScore();
-    }
-
-    // 选择胜利者
-    function selectWinner(player) {
-        // 如果点击的是当前已选中的胜利者，则取消选择，否则选中新的胜利者
-        currentWinner = currentWinner === player ? null : player;
-        // 切换失败者输入区域的显示/隐藏
-        document.getElementById('loserInputSection').classList.toggle('hidden', currentWinner === null);
-        // 禁用/启用确认得分按钮
-        document.getElementById('confirmScoreBtn').disabled = currentWinner === null;
-        // 更新确认得分按钮的文本
-        document.getElementById('confirmScoreBtn').textContent = currentWinner ? '确认得分' : '请先选择胜利者';
-        // 更新提示信息的显示/隐藏
-        document.getElementById('winnerWarningMessage').style.display = currentWinner ? 'none' : 'block';
-        document.getElementById('warningMessage').style.display = 'none';
-        // 重新渲染胜利者选择按钮和失败者分数输入
-        renderWinnerSelection();
-        renderScoreInputs();
-        // 更新总损失分数
-        updateTotalLostScore();
-    }
-
-    // 切换倍率
-    function toggleMultiplier() {
-        currentMultiplier++; // 倍率加 1
-        document.getElementById('multiplierDisplay').innerText = currentMultiplier; // 更新显示
-        updateTotalLostScore(); //重新计算总损失分数
-    }
-
-    // 新增：清除倍率
-    function clearMultiplier() {
-        currentMultiplier = 0; // 倍率重置为 0
-        document.getElementById('multiplierDisplay').innerText = currentMultiplier; // 更新显示
-        updateTotalLostScore(); //重新计算总损失分数
-    }
-
-    // 调整分数（加/减）
-    function adjustScore(player, amount) {
-        const input = document.getElementById(`${player}-score`);
-        if (input) {
-            // 更新分数显示，确保不小于0
-            // 将 innerText 解析为浮点数，然后与 amount 相加，最后保留一位小数
-            input.innerText = (parseFloat(input.innerText) + amount).toFixed(1);
-            if (parseFloat(input.innerText) < 0) {
-                input.innerText = '0.0'; //确保是字符串形式
+    
+        // 重置玩家分数
+        function resetPlayerScore(player) {
+            const scoreDisplay = document.getElementById(`${player}-score`);
+            if (scoreDisplay) {
+                scoreDisplay.innerText = '0';
             }
             // 更新总损失分数
             updateTotalLostScore();
         }
-    }
-
-    // 重置玩家分数
-    function resetPlayerScore(player) {
-        const scoreDisplay = document.getElementById(`${player}-score`);
-        if (scoreDisplay) {
-            scoreDisplay.innerText = '0';
-        }
-        // 更新总损失分数
-        updateTotalLostScore();
-    }
-
-    // 计算得分
-    function calculateScore() {
-        // 如果没有选择胜利者，则显示提示信息并返回
-        if (!currentWinner) {
-            document.getElementById('winnerWarningMessage').style.display = 'block';
-            document.getElementById('confirmScoreBtn').textContent = '请先选择胜利者';
-            document.getElementById('confirmScoreBtn').disabled = true;
-            return;
-        }
-
-        const loseDetails = {}; // 失败者详情
-        let totalLost = 0; // 总损失分数
-
-        // 遍历玩家，计算失败者的扣分
-        players.forEach(player => {
-            if (player !== currentWinner) {
-                const scoreElement = document.getElementById(`${player}-score`);
-                // 将分数解析为浮点数
-                let score = scoreElement ? parseFloat(scoreElement.innerText) : 0;
-
-                // 新增：根据倍率计算扣分
-                if (currentMultiplier > 0) {
-                    score *= Math.pow(2, currentMultiplier); // 乘以 2 的 n 次方
-                }
-
-                loseDetails[player] = score;
-                totalLost += score;
+    
+        // 计算得分
+        function calculateScore() {
+            // 如果没有选择胜利者，则显示提示信息并返回
+            if (!currentWinner) {
+                document.getElementById('winnerWarningMessage').style.display = 'block';
+                document.getElementById('confirmScoreBtn').textContent = '请先选择胜利者';
+                document.getElementById('confirmScoreBtn').disabled = true;
+                return;
             }
-        });
-
-        // 创建本回合的快照
-        const snapshot = {
-            round: historyData.length + 1,  // 回合数
-            winner: currentWinner,          // 胜利者
-            gained: totalLost,              // 胜利者获得的分数
-            details: loseDetails,            // 失败者详情
-            multiplier: currentMultiplier,  // 新增：记录本回合的倍率
-            scores: { ...totalScores }      // 当前所有玩家的总分
+    
+            const loseDetails = {}; // 失败者详情
+            let totalLost = 0; // 总损失分数
+    
+            // 遍历玩家，计算失败者的扣分
+            players.forEach(player => {
+                if (player !== currentWinner) {
+                    const scoreElement = document.getElementById(`${player}-score`);
+                    const score = scoreElement ? parseInt(scoreElement.innerText) : 0;
+                    loseDetails[player] = score;
+                    totalLost += score;
+                }
+            });
+    
+            // 创建本回合的快照
+            const snapshot = {
+                round: historyData.length + 1,
+                // 回合数
+                winner: currentWinner,
+            // 胜利者
+            gained: totalLost,
+            // 胜利者获得的分数
+            details: loseDetails,
+            // 失败者详情
+            scores: { ...totalScores } // 当前所有玩家的总分
         };
         // 将本回合快照添加到历史记录
         historyData.push(snapshot);
@@ -1122,7 +1002,7 @@
                     <div style="font-size:18px;font-weight:bold">${player}</div>
                     <div style="color:#666">当前分数：
                         <span class="${totalScores[player] >= 0 ? 'positive-score' : 'negative-score'}">
-                            ${totalScores[player].toFixed(1)}
+                            ${totalScores[player]}
                         </span>
                     </div>
                 </div>
@@ -1142,10 +1022,8 @@
             <tr>
                 <td>${record.round}</td>
                 <td><span class="winner-name">${record.winner}</span><span class="winner-icon"></span></td>
-                <td class="positive-score">+${record.gained.toFixed(1)}</td>
-                <td>${Object.entries(record.details).map(([p, s]) => `<span class="negative-score">${p}: -${s.toFixed(1)}</span>`).join(', ')}</td>
-                <!-- 新增：显示倍率 -->
-                <td>${record.multiplier > 0 ? `x${Math.pow(2, record.multiplier)}` : ''}</td>
+                <td class="positive-score">+${record.gained}</td>
+                <td>${Object.entries(record.details).map(([p, s]) => `<span class="negative-score">${p}: -${s}</span>`).join(', ')}</td>
                 <td><button class="danger-btn delete-btn" onclick="deleteRound(${record.round})">删除</button></td>
             </tr>
         `).join('');
@@ -1182,7 +1060,7 @@
             <div class="result-card">
                 <h3>🎉 本局结果</h3>
                 <p>胜利者：<span class="winner-name">${currentWinner}</span><span class="winner-icon"></span></p>
-                <p>获得分数：<span class="positive-score">+${score.toFixed(1)}</span></p>
+                <p>获得分数：<span class="positive-score">+${score}</span></p>
             </div>
         `;
         document.getElementById('resultsSection').classList.remove('hidden');
@@ -1214,9 +1092,6 @@
         document.getElementById('winnerDisplay').innerHTML = '';
         // 重新渲染胜利者选择按钮
         renderWinnerSelection();
-        //新增 重置倍率为 0
-        currentMultiplier = 0;
-        document.getElementById('multiplierDisplay').innerText = currentMultiplier; // 确保 resetRound 也清除显示
     }
 
     // 重置游戏
@@ -1236,12 +1111,12 @@
             '=== 历史记录 ===',
         ];
         historyData.forEach(r => {
-            data.push(`${r.round} ${r.winner} +${r.gained.toFixed(1)} ${Object.entries(r.details).map(([p, s]) => `${p}:-${s.toFixed(1)}`).join(',')} 倍率: x${Math.pow(2, r.multiplier)}`);
+            data.push(`${r.round} ${r.winner} +${r.gained} ${Object.entries(r.details).map(([p, s]) => `${p}:-${s}`).join(',')}`);
         });
         data.push('');
         data.push('=== 最终得分 ===');
         players.forEach(p => {
-            data.push(`${p}: ${totalScores[p].toFixed(1)}`);
+            data.push(`${p}: ${totalScores[p]}`);
         });
 
         const blob = new Blob([data.join('\n')], {
@@ -1262,10 +1137,7 @@
                 if (player !== currentWinner) {
                     const inputElement = document.getElementById(`${player}-score`);
                     if (inputElement) {
-                        let score = parseFloat(inputElement.innerText) || 0;
-                        if (currentMultiplier > 0) {
-                            score *= Math.pow(2, currentMultiplier);
-                        }
+                        const score = parseInt(inputElement.innerText) || 0;
                         totalLost += score;
                     }
                 }
@@ -1273,7 +1145,7 @@
         }
         const winnerDisplay = document.getElementById('winnerDisplay');
         if (currentWinner) {
-            winnerDisplay.innerHTML = `<p><span class="winner-name">${currentWinner}</span> 将获得 <span id="total-lost-score">${totalLost.toFixed(1)}</span> 分</p>`;
+            winnerDisplay.innerHTML = `<p><span class="winner-name">${currentWinner}</span> 将获得 <span id="total-lost-score">${totalLost}</span> 分</p>`;
         } else {
             winnerDisplay.innerHTML = ''; // 没有选择胜利者时，清空显示
         }
@@ -1285,3 +1157,4 @@
 </body>
 
 </html>
+<!-- CHUNK 3 END - 代码结束 -->
