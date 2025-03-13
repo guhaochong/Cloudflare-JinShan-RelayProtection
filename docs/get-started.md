@@ -36,4 +36,5 @@
 
 - [测试](/Page/TEST.md)
 - [其他](/Page/OTHER.md)
+- [10千伏自愈链路](/Page/10K-Self-HealingLink.md)
 
