@@ -4,7 +4,40 @@
 
 # TEST 测试
 
+
+```mermaid
+graph LR
+    PS1(电源站 1) --> SS1A[开关站 1 A]
+    SS1A --> SS1B[开关站 1 B]
+    SS1B --> SS2A[开关站 2 A]
+    SS2A --> SS2B[开关站 2 B]
+    SS2B --> SS3A
+    
+    PS2(电源站 2) --> SS4B[开关站 4 B]
+     SS4B --> SS4A[开关站 4 A]
+     SS4A --> SS3B[开关站 3 B]
+     SS3B --> SS3A[开关站 3 A]
+
+    style PS1 fill:#f9f,stroke:#333
+    style PS2 fill:#f9f,stroke:#333
+    style SS1A fill:#bbf,stroke:#333
+    style SS1B fill:#bbf,stroke:#333
+    style SS2A fill:#bbf,stroke:#333
+    style SS2B fill:#bbf,stroke:#333
+    style SS3A fill:#ff9999,stroke:#333
+    style SS3B fill:#bbf,stroke:#333
+    style SS4A fill:#bbf,stroke:#333
+    style SS4B fill:#bbf,stroke:#333
+```
+
+
+
+
+
+
+
 ::: code-group
+
 ```txt:line-numbers=0 {1}
 事故总信号 // [!code highlight]
 10千伏一段自切未准备
