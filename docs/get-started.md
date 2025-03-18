@@ -18,6 +18,9 @@
 
 - [10千伏 K型号 标准 二次铭牌](/Page/10K-Standard-Nameplate.md)
 
+## 自愈库
+- [10千伏 K型 自愈 链路表](/Page/10K-Self-HealingLink.md)
+
   
 
 ## 旧文库
@@ -36,5 +39,5 @@
 
 - [测试](/Page/TEST.md)
 - [其他](/Page/OTHER.md)
-- [10千伏自愈链路](/Page/10K-Self-HealingLink.md)
+
 

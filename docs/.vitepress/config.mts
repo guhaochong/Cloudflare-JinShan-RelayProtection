@@ -85,6 +85,21 @@ export default withMermaid({
         ]
       },
       {
+        text: '自愈库',
+        collapsible: true,
+        collapsed: false,
+        items: [
+          {
+            text: 'K型号 开关站',
+            collapsible: true,
+            collapsed: false,
+            items: [
+              { text: '10K 自愈链路表', link: '/Page/10K-Self-HealingLink' }
+            ]
+          }
+        ]
+      },
+      {
         text: '旧版文库',
         collapsible: true,
         collapsed: true,

@@ -6,7 +6,7 @@
 
 
 ```mermaid
-graph LR
+graph TD
     PS1(电源站 1) --> SS1A[开关站 1 A]
     SS1A --> SS1B[开关站 1 B]
     SS1B --> SS2A[开关站 2 A]
@@ -30,61 +30,161 @@ graph LR
     style SS4B fill:#bbf,stroke:#333
 ```
 
+# 10kV 自愈环路链路图
 
+```mermaid
+graph TD
+    PS1(电源站 1) -->| | SS1A
+    subgraph 开关站1
+        SS1A[仓位A] --> SS1B[仓位B]
+    end
+    SS1B -->| | SS2A
+    subgraph 开关站2
+        SS2A[仓位A] --> SS2B[仓位B]
+    end
+    SS2B -->| | SS3A
+    subgraph 开关站3
+        SS3B[仓位B] --> SS3A[仓位A-开环点]
+    end
+    SS4A -->| | SS3B
+    subgraph 开关站4
+        SS4B[仓位A] --> SS4A[仓位B]
+    end
+    PS2(电源站 2) -->| | SS4B
 
+    style PS1 fill:#e6d9ff,stroke:#4a0072,stroke-width:2px
+    style PS2 fill:#e6d9ff,stroke:#4a0072,stroke-width:2px
+    style SS1A fill:#cce5ff,stroke:#004085,stroke-width:1px
+    style SS1B fill:#cce5ff,stroke:#004085,stroke-width:1px
+    style SS2A fill:#cce5ff,stroke:#004085,stroke-width:1px
+    style SS2B fill:#cce5ff,stroke:#004085,stroke-width:1px
+    style SS3A fill:#ffcccc,stroke:#cc0000,stroke-width:1px,stroke-dasharray:5,5
+    style SS3B fill:#cce5ff,stroke:#004085,stroke-width:1px
+    style SS4A fill:#cce5ff,stroke:#004085,stroke-width:1px
+    style SS4B fill:#cce5ff,stroke:#004085,stroke-width:1px
 
+    style 开关站1 stroke:#666666,stroke-width:1px,stroke-dasharray:4,4
+    style 开关站2 stroke:#666666,stroke-width:1px,stroke-dasharray:4,4
+    style 开关站3 stroke:#666666,stroke-width:1px,stroke-dasharray:4,4
+    style 开关站4 stroke:#666666,stroke-width:1px,stroke-dasharray:4,4
+
+    linkStyle default stroke:#555555,stroke-width:2px
+```
+# 10kV 自愈环路链路图
+
+```mermaid
+graph TD
+    %% 电源站水平对齐
+    subgraph 电源站
+        PS1(电源站 1) -.- PS2(电源站 2)  %% 使用虚线并排放置，强制水平
+    end
+
+    %% 开关站 1
+    PS1 -->| | SS1A
+    subgraph 开关站1
+        SS1A[仓位A] --> SS1B[仓位B]
+    end
+    SS1B -->| | SS2A
+
+    %% 开关站 2
+    subgraph 开关站2
+        SS2A[仓位A] --> SS2B[仓位B]
+    end
+    SS2B -->| | SS3A
+
+    %% 开关站 3 - 开环点
+    subgraph 开关站3
+        SS3A[仓位A-开环点] -.- SS3B[仓位B]  %% 虚线表示开环点，调整顺序
+    end
+    SS4A -->| | SS3B  %% 从底部进入 SS3B
+
+    %% 开关站 4
+    subgraph 开关站4
+        SS4B[仓位A] --> SS4A[仓位B]
+    end
+    PS2 -->| | SS4B
+
+    %% 样式优化
+    style PS1 fill:#e6d9ff,stroke:#4a0072,stroke-width:2px
+    style PS2 fill:#e6d9ff,stroke:#4a0072,stroke-width:2px
+    style SS1A fill:#cce5ff,stroke:#004085,stroke-width:1px
+    style SS1B fill:#cce5ff,stroke:#004085,stroke-width:1px
+    style SS2A fill:#cce5ff,stroke:#004085,stroke-width:1px
+    style SS2B fill:#cce5ff,stroke:#004085,stroke-width:1px
+    style SS3A fill:#ffcccc,stroke:#cc0000,stroke-width:1px,stroke-dasharray:5,5
+    style SS3B fill:#cce5ff,stroke:#004085,stroke-width:1px
+    style SS4A fill:#cce5ff,stroke:#004085,stroke-width:1px
+    style SS4B fill:#cce5ff,stroke:#004085,stroke-width:1px
+
+    style 开关站1 stroke:#666666,stroke-width:1px,stroke-dasharray:4,4
+    style 开关站2 stroke:#666666,stroke-width:1px,stroke-dasharray:4,4
+    style 开关站3 stroke:#666666,stroke-width:1px,stroke-dasharray:4,4
+    style 开关站4 stroke:#666666,stroke-width:1px,stroke-dasharray:4,4
+    style 电源站 stroke:#666666,stroke-width:1px,stroke-dasharray:4,4
+
+    %% 调整箭头样式
+    linkStyle default stroke:#555555,stroke-width:2px
+```
 
 
 
 ::: code-group
 
-```txt:line-numbers=0 {1}
-事故总信号 // [!code highlight]
-10千伏一段自切未准备
-10千伏二段自切未准备 // [!code highlight]
-10千伏分段自切跳一段进线开关
-10千伏分段自切跳二段进线开关
-10千伏分段自切合分段开关
-10千伏分段自切后加速跳分段开关
-10千伏出线（站配变）保护动作
-站内微机装置异常
-直流系统故障
-10千伏站变/配变异常
-10千伏进线纵差保护动作
-10千伏进线纵差装置异常
-站内空开故障
-站内微机装置通讯故障
-```
-```txt:line-numbers=1 {1}
-合成事故总
-一段自切保护未准备信号
-二段自切保护未准备信号
-自切动作后，跳开一号进线开关信号
-自切动作后，跳开二号进线开关信号
-自切动作后，合上分段开关信号
-自切后加速动作，跳开分段开关信号
-出线、配变、站变保护动作信号（前加速、重合闸、过流、零流、间隙、等）
-全站保护装置故障信号（装置失电、装置异常
-直流装置异常及失电信号
-当为配变配置为超温、高温信号；当为站变配置则为站变熔丝熔断、站变空开故障
-纵差保护动作信号
-纵差装置异常、通信异常信号
-全站空开故障、信开故障信号
-全站保护装置通讯异常信号
-站用电失电信号
-全站开关未储能信号
-全站加热器故障信号
-全站控制回路断线信号
-
+```ts [电源1]
+        A串                              B串                    // [!code error]
+        |                                |
+金01金山继保联络甲开关             金01金山继保联络甲开关           // [!code warning]
 ```
 
-
-
-```txt
-
+```ts [开关站1]
+        A串                              B串                    // [!code error]
+        |                                |
+金01金山继保联络甲开关             金01金山继保联络甲开关           // [!code warning]
+        |                                |
+        |                                |
+金01金山继保联络乙开关             金01金山继保联络甲开关           // [!code warning]
+        |                                |
+        |                                |    
+         ─────────── 分段开关 ──────────── 
 ```
-
-
+```ts [开关站2]
+        A串                              B串                    // [!code error]
+        |                                |
+金01金山继保联络甲开关             金01金山继保联络甲开关           // [!code warning]
+        |                                |
+        |                                |
+金01金山继保联络乙开关             金01金山继保联络甲开关           // [!code warning]
+        |                                |
+        |                                |    
+         ─────────── 分段开关 ──────────── 
+```
+```ts [开关站3]
+        A串                              B串                    // [!code error]
+        |                                |
+金01金山继保联络甲开关             金01金山继保联络甲开关           // [!code warning]
+        |                                |
+        |                                |
+金01金山继保联络乙开关             金01金山继保联络甲开关           // [!code warning]
+        |                                |
+        |                                |    
+         ─────────── 分段开关 ──────────── 
+```
+```ts [开关站4]
+        A串                              B串                    // [!code error]
+        |                                |
+金01金山继保联络甲开关             金01金山继保联络甲开关           // [!code warning]
+        |                                |
+        |                                |
+金01金山继保联络乙开关             金01金山继保联络甲开关           // [!code warning]
+        |                                |
+        |                                |    
+         ─────────── 分段开关 ──────────── 
+```
+```ts [电源2]
+        A串                              B串                    // [!code error]
+        |                                |
+金01金山继保联络甲开关             金01金山继保联络甲开关           // [!code warning]
+```
 ::: 
 
 
