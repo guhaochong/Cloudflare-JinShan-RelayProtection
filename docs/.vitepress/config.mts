@@ -90,10 +90,11 @@ export default withMermaid({
         collapsed: false,
         items: [
           {
-            text: 'K型号 开关站',
+            text: '自愈链路',
             collapsible: true,
             collapsed: false,
             items: [
+              { text: '110X 自愈链路表', link: '/Page/110X-Self-HealingLink' },
               { text: '10K 自愈链路表', link: '/Page/10K-Self-HealingLink' }
             ]
           }
