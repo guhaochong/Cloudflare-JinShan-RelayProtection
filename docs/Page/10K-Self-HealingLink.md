@@ -20,6 +20,7 @@
 ## 君逸 自愈系统
 ------
 <Badge type="warning" text="主站：东平" />
+<Badge type="tip" text="装置：四方" />
 ::: code-group
 ```ts [东平]
   A串               B串                    // [!code error]
@@ -58,6 +59,7 @@
 ## 海皓馨园 自愈系统
 ------
 <Badge type="warning" text="主站：工农" />
+<Badge type="tip" text="装置：欣能" />
 
 ::: code-group
 ```ts [东平]
@@ -104,6 +106,7 @@
 ## 巴洛美 自愈系统
 ------
 <Badge type="warning" text="主站：金舸" />
+<Badge type="tip" text="装置：欣能" />
 
 ::: code-group
 ```ts [蒋庄]
@@ -143,6 +146,7 @@
 ## 金仁 自愈系统
 ------
 <Badge type="warning" text="主站：金舸" />
+<Badge type="tip" text="装置：南瑞" />
 
 ::: code-group
 ```ts [秀采]
@@ -189,6 +193,7 @@
 ## 豪业 自愈系统
 ------
 <Badge type="warning" text="主站：金舸" />
+<Badge type="tip" text="装置：磐能" />
 
 ::: code-group
 ```ts [秀采]
@@ -235,6 +240,7 @@
 ## 观湖名邸 自愈系统
 ------
 <Badge type="warning" text="主站：工农" />
+<Badge type="tip" text="装置：四方" />
 
 ::: code-group
 ```ts [工农]
