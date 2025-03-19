@@ -95,8 +95,8 @@ export default withMermaid({
             collapsible: true,
             collapsed: false,
             items: [
-              { text: '110X 自愈系统 链路表', link: '/Page/110X-SelfHealing-Link' },
-              { text: '10K 自愈系统 链路表', link: '/Page/10K-SelfHealing-Link' }
+              { text: '10K 自愈系统 链路表', link: '/Page/10K-SelfHealing-Link' },
+              { text: '110X 自愈系统 链路表', link: '/Page/110X-SelfHealing-Link' }
             ]
           }
         ]
