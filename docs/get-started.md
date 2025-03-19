@@ -6,6 +6,7 @@
 
 - K型 开关站
   - [10千伏 K型 报警灯 配置表](Page/10K-Alarmplate.md)<Badge type="warning" text="适用于 统一型后台装置" />
+  - [10千伏 K型 自愈系统 主站点表](/Page/10K-SelfHealing-Uploadlate.md)
   - [10千伏 K型 标准柜 点表](/Page/10K-Standard-Uploadplate.md) <Badge type="warning" text="适用于 标准柜体 带自愈 带FA" />
   - [10千伏 K型 充气柜 点表](/Page/10K-Air-Uploadplate.md) <Badge type="warning" text="适用于 三工位充气柜体 带自愈 带FA" />
 - P型 小区站
@@ -19,8 +20,9 @@
 - [10千伏 K型号 标准 二次铭牌](/Page/10K-Standard-Nameplate.md)
 
 ## 自愈库
-- [110千伏 X型 自愈 链路表](/Page/110X-Self-HealingLink.md)
-- [10千伏 K型 自愈 链路表](/Page/10K-Self-HealingLink.md)
+- [10千伏 K型 自愈系统 链路表](/Page/10K-SelfHealing-Link.md)
+- [110千伏 K型 自愈系统 链路表](/Page/110X-SelfHealing-link.md)
+
 
   
 
@@ -40,4 +42,5 @@
 
 - [测试](/Page/TEST.md)
 - [其他](/Page/OTHER.md)
+
 
