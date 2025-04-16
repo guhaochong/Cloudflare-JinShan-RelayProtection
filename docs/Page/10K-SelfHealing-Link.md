@@ -145,7 +145,7 @@
 ------
 ## 金仁 自愈系统
 ------
-<Badge type="warning" text="主站：金舸" />
+<Badge type="warning" text="主站：秀采" />
 <Badge type="tip" text="装置：南瑞" />
 
 ::: code-group
