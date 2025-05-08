@@ -54,7 +54,6 @@ export default withMermaid({
             collapsed: false,
             items: [
               { text: '10K 报警灯配置表', link: '/Page/10K-Alarmplate' },
-              { text: '10K 自愈系统 主站点表', link: '/Page/10K-SelfHealing-Uploadlate' },
               { text: '10K 标准柜点表', link: '/Page/10K-Standard-Uploadplate' },
               { text: '10K 充气柜点表', link: '/Page/10K-Air-Uploadplate' }
             ]
@@ -91,11 +90,19 @@ export default withMermaid({
         collapsed: false,
         items: [
           {
-            text: '自愈系统链路',
+            text: '10千伏 自愈系统',
             collapsible: true,
             collapsed: false,
             items: [
               { text: '10K 自愈系统 链路表', link: '/Page/10K-SelfHealing-Link' },
+              { text: '10K 自愈系统 主站点表', link: '/Page/10K-SelfHealing-Uploadlate' }
+            ]
+          },
+          {
+            text: '110千伏 自愈系统',
+            collapsible: true,
+            collapsed: false,
+            items: [
               { text: '110X 自愈系统 链路表', link: '/Page/110X-SelfHealing-Link' }
             ]
           }

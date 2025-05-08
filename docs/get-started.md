@@ -21,10 +21,11 @@
   
 
 ## 自愈库
-- [10千伏 K型 自愈系统 链路表](/Page/10K-SelfHealing-Link.md)
+- K型 开关站
+  - [10千伏 K型 自愈系统 链路表](/Page/10K-SelfHealing-Link.md)
   - [10千伏 K型 自愈系统 主站点表](/Page/10K-SelfHealing-Uploadlate.md)
-
-- [110千伏 K型 自愈系统 链路表](/Page/110X-SelfHealing-Link.md)
+- 系统站
+  - [110千伏 K型 自愈系统 链路表](/Page/110X-SelfHealing-Link.md)
 
 
 

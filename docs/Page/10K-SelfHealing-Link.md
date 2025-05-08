@@ -2,7 +2,7 @@
 
 ::: tip 文档版本
 
-> **`更新日期：2025.03.15`**
+> **`更新日期：2025.05.08`**
 
 > **`文档版本号：25-0-1`**
 
@@ -17,11 +17,100 @@
 :::
 
 ------
+## 天刚 自愈系统
+------
+<Badge type="warning" text="主站：秦山" />
+<Badge type="tip" text="装置：四方" />
+
+::: code-group
+```ts [秦山]
+  A串           	   B串                    // [!code error]
+   |                 |
+秦17汇科甲          秦28汇科乙           // [!code warning]
+```
+```ts [汇科]
+   |                 |
+秦17汇科甲          秦28汇科乙           // [!code warning]
+   |                 |
+07汇11天钢甲联络    07汇12天钢乙联络           // [!code warning]
+```
+```ts [天钢]
+  A串               B串                    // [!code error]
+   |                 |
+07汇11天钢甲联络    07汇12天钢乙联络            // [!code warning]
+   |                 |
+待定               // [!code warning]
+```
+```ts [自立]
+  A串               B串                    // [!code error]
+   |                 |
+待定          // [!code warning]
+   |                 |
+贤24自立甲     		贤33自立乙          // [!code warning]
+```
+```ts [东贤]
+  A串 (卫通)         B串 (东平)                    // [!code error]
+   |                 |
+贤24自立甲     		贤33自立乙      // [!code warning]
+```
+::: 
+
+
+
+------
+## 观唐 自愈系统
+------
+<Badge type="warning" text="主站：东平" />
+<Badge type="tip" text="装置：欣能" />
+
+::: code-group
+```ts [东平]
+  A串(东平)           B串（山阳）                    // [!code error]
+   |                 |
+东19金碧郦园甲       山13金碧郦园乙           // [!code warning]
+```
+```ts [金碧郦园]
+   |                 |
+东19金碧郦园甲        山13金碧郦园乙           // [!code warning]
+   |                 |
+77金11观唐嘉苑一号甲   77金12观唐嘉苑一号乙           // [!code warning]
+```
+```ts [观唐嘉园一号]
+  A串               B串                    // [!code error]
+   |                 |
+77金11观唐嘉苑一号甲   77金12观唐嘉苑一号甲           // [!code warning]
+   |                 |
+04观1观唐嘉苑一号甲联络 04观2观唐嘉苑一号乙联络          // [!code warning]
+```
+```ts [观唐嘉园二号]
+  A串               B串                    // [!code error]
+   |                 |
+04观1观塘唐苑一号甲联络 04观2观唐嘉苑一号乙联络          // [!code warning]
+   |                 |
+24皓3观唐嘉苑二号甲    24皓4观唐嘉苑二号乙           // [!code warning]
+```
+```ts [龙皓]
+  A串               B串                    // [!code error]
+   |                 |
+24皓3观唐嘉苑二号甲    24皓4观唐嘉苑二号乙          // [!code warning]
+   |                 |
+卫2龙浩甲            东25龙皓乙           // [!code warning]
+```
+```ts [A串-卫通]	[B串-东平]
+  A串 (卫通)         B串 (东平)                    // [!code error]
+   |                 |
+卫2龙皓甲            东25龙皓乙      // [!code warning]
+```
+::: 
+
+
+------
 ## 君逸 自愈系统
 ------
 <Badge type="warning" text="主站：东平" />
 <Badge type="tip" text="装置：四方" />
 ::: code-group
+
 ```ts [东平]
   A串               B串                    // [!code error]
    |                 |
