@@ -29,6 +29,7 @@
 秦17汇科甲          秦28汇科乙           // [!code warning]
 ```
 ```ts [汇科]
+  A串               B串                    // [!code error]
    |                 |
 秦17汇科甲          秦28汇科乙           // [!code warning]
    |                 |
@@ -64,12 +65,13 @@
 <Badge type="tip" text="装置：欣能" />
 
 ::: code-group
-```ts [东平]
+```ts [东平，山阳]
   A串(东平)           B串（山阳）                    // [!code error]
    |                 |
 东19金碧郦园甲       山13金碧郦园乙           // [!code warning]
 ```
 ```ts [金碧郦园]
+  A串               B串                    // [!code error]
    |                 |
 东19金碧郦园甲        山13金碧郦园乙           // [!code warning]
    |                 |
@@ -96,7 +98,7 @@
    |                 |
 卫2龙浩甲            东25龙皓乙           // [!code warning]
 ```
-```ts [A串-卫通]	[B串-东平]
+```ts [卫通，东平]
   A串 (卫通)         B串 (东平)                    // [!code error]
    |                 |
 卫2龙皓甲            东25龙皓乙      // [!code warning]
