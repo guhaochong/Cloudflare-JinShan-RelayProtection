@@ -26,7 +26,8 @@
   - [10千伏 K型 自愈系统 主站点表](/Page/10K-SelfHealing-Uploadlate.md)
 - 系统站
   - [110千伏 K型 自愈系统 链路表](/Page/110X-SelfHealing-Link.md)
-
+- P型 小区站
+  - [10千伏 P型 FA系统 链路表](/Page/10P-FA-Link.md)
 
 
 
