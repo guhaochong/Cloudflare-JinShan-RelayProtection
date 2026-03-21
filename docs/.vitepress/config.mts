@@ -85,7 +85,22 @@ export default withMermaid({
         ]
       },
       {
-        text: '自愈库',
+        text: 'FA系统库',
+        collapsible: true,
+        collapsed: false,
+        items: [
+          {
+            text: 'P型号 小区站',
+            collapsible: true,
+            collapsed: false,
+            items: [
+              { text: '10P FA系统 链路表', link: '/Page/10P-FA-Link' }
+            ]
+          }
+        ]
+      },
+      {
+        text: '自愈系统库',
         collapsible: true,
         collapsed: false,
         items: [
