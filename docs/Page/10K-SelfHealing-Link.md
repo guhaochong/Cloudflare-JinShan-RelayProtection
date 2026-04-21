@@ -17,6 +17,48 @@
 :::
 
 ------
+## 瓯良 自愈系统
+------
+<Badge type="warning" text="主站：金鸥" />
+<Badge type="tip" text="装置：南瑞" />
+
+::: code-group
+```ts [金鸥]
+  A串           	   B串                    // [!code error]
+   |                 |
+秦17汇科甲          秦28汇科乙           // [!code warning]
+```
+```ts [夏盛]
+  A串               B串                    // [!code error]
+   |                 |
+秦17汇科甲          秦28汇科乙           // [!code warning]
+   |                 |
+07汇11天钢甲联络    07汇12天钢乙联络           // [!code warning]
+```
+```ts [瓯良]
+  A串               B串                    // [!code error]
+   |                 |
+07汇11天钢甲联络    07汇12天钢乙联络            // [!code warning]
+   |                 |
+待定               // [!code warning]
+```
+```ts [春华]
+  A串               B串                    // [!code error]
+   |                 |
+待定          // [!code warning]
+   |                 |
+贤24自立甲     		贤33自立乙          // [!code warning]
+```
+```ts [海虹]
+  A串 (卫通)         B串 (东平)                    // [!code error]
+   |                 |
+贤24自立甲     		贤33自立乙      // [!code warning]
+```
+::: 
+
+
+
+------
 ## 天刚 自愈系统
 ------
 <Badge type="warning" text="主站：秦山" />
