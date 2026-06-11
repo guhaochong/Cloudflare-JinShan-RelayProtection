@@ -2,9 +2,9 @@
 
 ::: tip 文档版本
 
-> **`更新日期：2025.05.08`**
+> **`更新日期：2026.06.11`**
 
-> **`文档版本号：25-0-1`**
+> **`文档版本号：26-0-1`**
 
 :::
 
@@ -17,6 +17,61 @@
 :::
 
 ------
+## 漕荣 自愈系统
+------
+<Badge type="warning" text="主站：金舸" />
+<Badge type="tip" text="装置：南瑞" />
+
+::: code-group
+```ts [金舸]
+  A串           	   B串                    // [!code error]
+   |                 |
+鸥22夏盛甲          鸥42夏盛乙           // [!code warning]
+```
+```ts [月工]
+  A串               B串                    // [!code error]
+   |                 |
+鸥22夏盛甲          鸥42夏盛乙           // [!code warning]
+   |                 |
+71盛9瓯良甲联络    71盛12瓯良乙联络           // [!code warning]
+```
+```ts [漕泾]
+  A串               B串                    // [!code error]
+   |                 |
+71盛9瓯良甲联络    71盛12瓯良乙联络            // [!code warning]
+   |                 |
+02春7瓯良甲        02春4瓯良乙       // [!code warning]
+```
+```ts [漕荣]
+  A串               B串                    // [!code error]
+   |                 |
+02春7瓯良甲         02春4瓯良乙		// [!code warning]
+   |                 |
+虹34春华甲     		虹21春华乙          // [!code warning]
+```
+```ts [展业]
+  A串        		B串                   // [!code error]
+   |                 |
+02春7瓯良甲         02春4瓯良乙		// [!code warning]
+   |                 |
+虹34春华甲     		虹21春华乙      // [!code warning]
+```
+```ts [中山]
+  A串        		B串                   // [!code error]
+   |                 |
+02春7瓯良甲         02春4瓯良乙		// [!code warning]
+   |                 |
+虹34春华甲     		虹21春华乙      // [!code warning]
+```
+```ts [工农]
+  A串        		B串                   // [!code error]
+   |                 |
+虹34春华甲     		虹21春华乙      // [!code warning]
+```
+::: 
+
+
+------
 ## 瓯良 自愈系统
 ------
 <Badge type="warning" text="主站：金鸥" />
@@ -26,33 +81,33 @@
 ```ts [金鸥]
   A串           	   B串                    // [!code error]
    |                 |
-秦17汇科甲          秦28汇科乙           // [!code warning]
+鸥22夏盛甲          鸥42夏盛乙           // [!code warning]
 ```
 ```ts [夏盛]
   A串               B串                    // [!code error]
    |                 |
-秦17汇科甲          秦28汇科乙           // [!code warning]
+鸥22夏盛甲          鸥42夏盛乙           // [!code warning]
    |                 |
-07汇11天钢甲联络    07汇12天钢乙联络           // [!code warning]
+71盛9瓯良甲联络    71盛12瓯良乙联络           // [!code warning]
 ```
 ```ts [瓯良]
   A串               B串                    // [!code error]
    |                 |
-07汇11天钢甲联络    07汇12天钢乙联络            // [!code warning]
+71盛9瓯良甲联络    71盛12瓯良乙联络            // [!code warning]
    |                 |
-待定               // [!code warning]
+02春7瓯良甲        02春4瓯良乙       // [!code warning]
 ```
 ```ts [春华]
   A串               B串                    // [!code error]
    |                 |
-待定          // [!code warning]
+02春7瓯良甲         02春4瓯良乙		// [!code warning]
    |                 |
-贤24自立甲     		贤33自立乙          // [!code warning]
+虹34春华甲     		虹21春华乙          // [!code warning]
 ```
 ```ts [海虹]
-  A串 (卫通)         B串 (东平)                    // [!code error]
+  A串        		B串                   // [!code error]
    |                 |
-贤24自立甲     		贤33自立乙      // [!code warning]
+虹34春华甲     		虹21春华乙      // [!code warning]
 ```
 ::: 
 
@@ -82,17 +137,17 @@
    |                 |
 07汇11天钢甲联络    07汇12天钢乙联络            // [!code warning]
    |                 |
-待定               // [!code warning]
+34自7天钢甲         34自8天钢乙      		// [!code warning]
 ```
 ```ts [自立]
   A串               B串                    // [!code error]
    |                 |
-待定          // [!code warning]
+34自7天钢甲         34自8天钢乙 		 // [!code warning]
    |                 |
 贤24自立甲     		贤33自立乙          // [!code warning]
 ```
 ```ts [东贤]
-  A串 (卫通)         B串 (东平)                    // [!code error]
+  A串         		B串                   // [!code error]
    |                 |
 贤24自立甲     		贤33自立乙      // [!code warning]
 ```
