@@ -74,7 +74,7 @@
 ------
 ## 瓯良 自愈系统
 ------
-<Badge type="warning" text="主站：金鸥" />
+<Badge type="warning" text="主站：海虹" />
 <Badge type="tip" text="装置：南瑞" />
 
 ::: code-group
